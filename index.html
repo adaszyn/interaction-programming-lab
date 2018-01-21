@@ -1,38 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
 
-  </head>
-  <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
+</head>
+
+<body>
+
+    <div class="page-header dnp-header">
+        <h1 class="dnp-header__text">Dinner planner</h1>
+    </div>
+
+    <div class="main-view-container">
+        <a id="menu-toggle-button">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </a>
+        <div id="sidebarView" class="sidebar">
+            My dinner: People:
+            <select class="">
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <div>
+                <div>Dish name</div>
+                <div>Dish cost</div>
+            </div>
+            <button>Submit Dinner</button>
+        </div>
+        <div id="introView">
+            <div class="intro-container">
+                <p>
+                    Lorem ipsum dolor blah blah Lorem ipsum dolor blah blah Lorem ipsum dolor blah blah Lorem ipsum dolor blah blah Lorem ipsum
+                    dolor blah blah Lorem ipsum dolor blah blah
+                </p>
+                <p>
+                    <a href="#plannerView">
+                        <button type="button" class="btn btn-primary btn-lg">Create New Dinner</button>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div id="menuView" class="menu-container">
+            menu
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </div>
+
+
+    </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
-  </body>
+    <!-- The application JavaScript code -->
+    <script src="js/util/router.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/model/dinnerModel.js"></script>
+    <script src="js/view/exampleView.js"></script>
+    <script src="js/view/introView.js"></script>
+    <script src="js/view/plannerView.js"></script>
+    <script src="js/view/sidebarView.js"></script>
+    <script src="js/view/menuView.js"></script>
+    <!-- TODO: Here you should include JS code for your other views -->
+</body>
+
 </html>

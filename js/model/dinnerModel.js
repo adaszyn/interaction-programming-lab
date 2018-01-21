@@ -1,47 +1,71 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
-	//TODO Lab 1 implement the data structure that will hold number of guest
-	// and selected dishes for the dinner menu
+    this.numberOfGuests = 0;
+    this.menu = {};
 
-
-	this.setNumberOfGuests = function(num) {
-		//TODO Lab 1
+	this.setNumberOfGuests = function(number) {
+        this.numberOfGuests = number;
+        return this;
 	}
 	
 	this.getNumberOfGuests = function() {
-		//TODO Lab 1
+		return this.numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 1
+        var result = [];
+        for (id in this.menu) {
+            if (this.menu.hasOwnPropertyOf(id)) {
+                var dish = this.menu[id];
+                if (dish.type === type) {
+                    result.push(dish);
+                }
+            }
+        }
+        return result;
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
+		return this.menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 1
+        var result = []
+        for (id in this.menu) {
+            if (this.menu.hasOwnPropertyOf(id)) {
+                var dish = this.menu[id];
+                result = result.cocat(dish.ingredients)
+            }
+        }
+        return result;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+        var ingredients = this.getAllIngredients()
+        return ingredients.reduce((total, ingredient) => {
+            return total + ingredient.price * ingredient.quantity;
+        }, 0) * this.numberOfGuests;
+        
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1 
+        var dish = dishes.find(dish => dish.id === id);
+        if (!dish) {
+            throw "Dish does not exist."
+        }
+        this.menu[id] = dish;
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
+		delete this.menu[id];
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
