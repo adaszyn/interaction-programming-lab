@@ -9,10 +9,18 @@ ApplicationRouter.prototype.render = function () {
             container = [container]
         }
         container.forEach(function(element) {
+            element.attr('hidden', true)
+        })
+    }
+    
+    for (var route in this.routesMap) {
+        var container = this.routesMap[route];
+        if (!$.isArray(container)) {
+            container = [container]
+        }
+        container.forEach(function(element) {
             if (window.location.hash === route) {
-                element.removeAttr('hidden')
-            } else {
-                element.attr('hidden', true)
+                element.prop('hidden', false)
             }
         })
        

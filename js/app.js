@@ -14,6 +14,7 @@ $(function() {
     var router = new ApplicationRouter({
         '': $("#introView"),
         '#plannerView': [$("#sidebarView"), $("#menuView")],
+        '#dishView': [$("#sidebarView"), $("#dishView")],
     })
     $('#menu-toggle-button')
         .on('click', function() {
