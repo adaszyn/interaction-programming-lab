@@ -34,7 +34,10 @@
                 <div>Dish name</div>
                 <div>Dish cost</div>
             </div>
-            <button>Submit Dinner</button>
+            <div>
+                <div>0 SEK</div>
+            </div>
+            <button type="button" class="btn btn-secondary btn-md">Confirm dinner</button>
         </div>
         <div id="introView">
             <div class="intro-container">
@@ -51,9 +54,39 @@
         </div>
 
         <div id="menuView" class="menu-container">
-            menu
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
+            <div class="search-view">
+                <h3>Find a dish</h3>
+                <input type="text" placeholder="Enter keywords" />
+                <select>
+                    <option>All</option>
+                    <option>Main Course</option>
+                    <option>Side Dish</option>
+                    <option>Dessert</option>
+                    <option>Appetizer</option>
+                </select>
+                <button type="button" class="btn btn-secondary btn-md">Search</button>
+
+            </div>
+            <div class="search-view">
+                <div class="menu-item">
+                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
+                    <h3 class="menu-item__label">Lasagne</h3>
+                </div>
+                <div class="menu-item">
+                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
+                    <h3 class="menu-item__label">Lasagne</h3>
+                </div>
+                <div class="menu-item">
+                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
+                    <h3 class="menu-item__label">Lasagne</h3>
+                </div>
+                <div class="menu-item">
+                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
+                    <h3 class="menu-item__label">Lasagne</h3>
+                </div>
+            </div>
         </div>
+
 
 
     </div>

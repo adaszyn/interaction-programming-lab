@@ -32,6 +32,17 @@
     display: none;
 }
 
+.search-view {
+    display: flex;
+    flex-wrap: wrap;
+}
+.menu-item {
+    width: 240px;
+    padding: 4px;
+}
+.menu-item__image {
+    width: 100%;
+}
 
 /* MEDIA QUERIES */
 
