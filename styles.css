@@ -43,7 +43,12 @@
 .menu-item__image {
     width: 100%;
 }
+.confirmation-header {
 
+}
+.cart-summary {
+    display: flex;
+}
 /* MEDIA QUERIES */
 
 @media (max-width: 480px) {

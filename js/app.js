@@ -15,6 +15,7 @@ $(function() {
         '': $("#introView"),
         '#plannerView': [$("#sidebarView"), $("#menuView")],
         '#dishView': [$("#sidebarView"), $("#dishView")],
+        '#confirmView': [$("#confirmView")],
     })
     $('#menu-toggle-button')
         .on('click', function() {
