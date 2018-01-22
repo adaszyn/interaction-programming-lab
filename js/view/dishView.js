@@ -8,12 +8,8 @@ function renderMenuItemTemplate(item) {
 }
 
 var DishView = function (container, dish) {
-    var menu = model.getFullMenu()
-    container.find('#guests-number-list').val(model.getNumberOfGuests())
-    var menuContainer = container.find('#menu-container');
-    menu.forEach(function(menuItem) {
-        menuContainer.append(renderMenuItemTemplate(menuItem))
-    })
+    container.find('#guests-number-list').val()
+    
     // <div class="menu-item">
     //                 <img class="menu-item__image" src="./images/bakedbrie.jpg" />
     //                 <h3 class="menu-item__label">Lasagne</h3>
