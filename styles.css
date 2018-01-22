@@ -14,10 +14,6 @@
     text-align: center;
 }
 
-#introView {
-  width: 100%;
-}
-
 .menu-container {
     width: 80%;
 }
@@ -38,11 +34,9 @@
 }
 
 #menu-toggle-button {
-    display: none;
-}
-
-#create-new-dinner-button {
-  margin-top: 20px;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 .search-view {
@@ -59,6 +53,7 @@
 .confirmation-header {
 
 }
+<<<<<<< HEAD
 .cart-summary {
     display: flex;
 }
@@ -70,11 +65,16 @@
 .dish-preview-img {
   width: 100%;
 }
+=======
+.cart-summary {}
+>>>>>>> 568e899c84947a298985e0e3fffd0dd8bf6a2d77
 /* MEDIA QUERIES */
 
 @media (max-width: 480px) {
     .main-view-container {
         display: initial;
+        width: auto;
+        height: auto;
     }
 
     .dish-container{
@@ -82,7 +82,8 @@
     }
 
     #menu-toggle-button {
-        display: block;
+        visibility: visible;
+        /* display: block; */
         text-align: right;
         border: 2px solid black;
     }
