@@ -25,7 +25,10 @@
         </a>
         <div id="sidebarView" class="sidebar">
             My dinner: People:
-            <select class="">
+            <select id="guests-number-list">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>
@@ -70,23 +73,8 @@
                 <button type="button" class="btn btn-secondary btn-md">Search</button>
 
             </div>
-            <div class="search-view">
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                </div>
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                </div>
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                </div>
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                </div>
+            <div class="search-view" id="menu-container">
+         
             </div>
         </div>
         <div id="dishView" class="dish-container">

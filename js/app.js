@@ -3,10 +3,10 @@ $(function() {
 	var model = new DinnerModel();
     
 	// And create the instance of ExampleView
-	var introView = new IntroView($("#introView"));
-	var plannerView = new PlannerView($("#plannerView"));
-	var plannerView = new MenuView($("#menuView"));
-	var plannerView = new SidebarView($("#sidebarView"));
+	var introView = new IntroView($("#introView"), model);
+	var plannerView = new PlannerView($("#plannerView"), model);
+	var plannerView = new MenuView($("#menuView"), model);
+	var plannerView = new SidebarView($("#sidebarView"), model);
     window.renderViews = function() {
         introView.render()
         plannerView.render()

@@ -29,7 +29,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return this.menu;
+		return dishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
