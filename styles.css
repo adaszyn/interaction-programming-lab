@@ -36,6 +36,10 @@
     display: none;
 }
 
+#create-new-dinner-button {
+  margin-top: 20px;
+}
+
 .search-view {
     display: flex;
     flex-wrap: wrap;
