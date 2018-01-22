@@ -1,7 +1,18 @@
 var ApplicationRouter = function(routesMap) {
     this.routesMap = routesMap;
 }
-
+function parseRoute(route) {
+    var splittedRoute = route.split('?')
+    var paramsSubUri = splittedRoute[1] || ''; 
+    return {
+        url: splittedRoute[0],
+        params: paramsSubUri.split('&').reduce(function(acc, argString) {
+            var [key,val] = argString.split('=')
+            acc[key] = val;
+            return acc; 
+        }, {})
+    }
+}
 ApplicationRouter.prototype.render = function () {
     for (var route in this.routesMap) {
         var container = this.routesMap[route];
@@ -9,7 +20,6 @@ ApplicationRouter.prototype.render = function () {
             container = [container]
         }
         container.forEach(function(element) {
-            console.log(element)
             element.css('display', 'none')
         })
     }
@@ -20,7 +30,8 @@ ApplicationRouter.prototype.render = function () {
             container = [container]
         }
         container.forEach(function(element) {
-            if (window.location.hash === route) {
+            var parsedRoute = parseRoute(window.location.hash)
+            if (parsedRoute.url === route) {
                 element.css('display', "initial")
             }
         })
