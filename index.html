@@ -19,12 +19,13 @@
         <h1 class="dnp-header__text">Dinner planner</h1>
     </div>
 
-    <div class="main-view-container">
+    <div class="main-view-container fill">
         <a id="menu-toggle-button">
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </a>
         <div id="sidebarView" class="sidebar">
-            My dinner: People:
+            <h3>My dinner</h3>
+            People:
             <select id="guests-number-list">
                 <option>0</option>
                 <option>1</option>
@@ -74,23 +75,21 @@
 
             </div>
             <div class="search-view" id="menu-container">
-         
+
             </div>
         </div>
         <div id="dishView" class="dish-container">
             <div class="row">
-                <div class="col-md-6 col-xs-12">
-                    <h1>LASAGNE</h1>
-                    <img class="" src="./images/bakedbrie.jpg" />
+                <div class="dish-preview-container col-md-6 col-xs-12">
+                    <h2>LASAGNE</h2>
+                    <img class="dish-preview-img" src="./images/bakedbrie.jpg" />
                     <p>
                         Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem
                         ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm Lorem ipusm
                     </p>
                     <button type="button" class="btn btn-secondary btn-md">back to search</button>
-                    <h1>PREPARATION</h1>
-
                 </div>
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-5 col-xs-12">
                     Ingredients for 3 people
                     <table class="table">
                         <tbody>
@@ -116,15 +115,15 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <button type="button" class="btn btn-secondary btn-md">Add to cart</button>
+                                    <button type="button" class="btn btn-secondary btn-md">Add to menu</button>
                                 </td>
                                 <td></td>
                                 <td>SEK 200</td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div>
+                <h2>PREPARATION</h2>
             </div>
         </div>
         <div id="confirmView" class="confirm-container">
