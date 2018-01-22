@@ -14,10 +14,6 @@
     text-align: center;
 }
 
-#introView {
-  width: 100%;
-}
-
 .menu-container {
     width: 80%;
 }
@@ -33,11 +29,9 @@
 }
 
 #menu-toggle-button {
-    display: none;
-}
-
-#create-new-dinner-button {
-  margin-top: 20px;
+    visibility: hidden;
+    width: 0;
+    height: 0;
 }
 
 .search-view {
@@ -54,17 +48,18 @@
 .confirmation-header {
 
 }
-.cart-summary {
-    display: flex;
-}
+.cart-summary {}
 /* MEDIA QUERIES */
 
 @media (max-width: 480px) {
     .main-view-container {
         display: initial;
+        width: auto;
+        height: auto;
     }
     #menu-toggle-button {
-        display: block;
+        visibility: visible;
+        /* display: block; */
         text-align: right;
         border: 2px solid black;
     }

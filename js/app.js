@@ -5,15 +5,16 @@ $(function() {
 	// And create the instance of ExampleView
 	var introView = new IntroView($("#introView"), model);
 	var plannerView = new PlannerView($("#plannerView"), model);
-	var plannerView = new MenuView($("#menuView"), model);
-	var plannerView = new SidebarView($("#sidebarView"), model);
+	var menuView = new MenuView($("#menuView"), model);
+	var sidebarView = new SidebarView($("#sidebarView"), model);
+	var dishView = new DishView($("#dishView"), model);
     window.renderViews = function() {
         introView.render()
         plannerView.render()
     };
     var router = new ApplicationRouter({
         '': $("#introView"),
-        '#plannerView': [$("#sidebarView"), $("#menuView")],
+        '#plannerView': [$("#sidebarView"), $("#menuView"), $('#menu-toggle-button')],
         '#dishView': [$("#sidebarView"), $("#dishView")],
         '#confirmView': [$("#confirmView")],
     })

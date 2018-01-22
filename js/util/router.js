@@ -9,7 +9,8 @@ ApplicationRouter.prototype.render = function () {
             container = [container]
         }
         container.forEach(function(element) {
-            element.attr('hidden', true)
+            console.log(element)
+            element.css('display', 'none')
         })
     }
     
@@ -20,17 +21,17 @@ ApplicationRouter.prototype.render = function () {
         }
         container.forEach(function(element) {
             if (window.location.hash === route) {
-                element.prop('hidden', false)
+                element.css('display', "initial")
             }
         })
        
     }
 }
 ApplicationRouter.prototype.toggleView = function(route) {
-    if ($(route).attr('hidden')) {
-        $(route).removeAttr('hidden')
+    if ($(route).css('display') === 'none') {
+        $(route).css('display', "initial")
     } else {
-        $(route).attr('hidden', true)
+        $(route).css('display', 'none')
 
     }
 }
