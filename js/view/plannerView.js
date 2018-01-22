@@ -9,8 +9,8 @@ function renderMenuItemTemplate(item) {
 
 var PlannerView = function (container, model) {
     var menu = model.getFullMenu()
-    $('#guests-number-list').val(model.getNumberOfGuests())
-    var menuContainer = $('#menu-container')
+    container.find('#guests-number-list').val(model.getNumberOfGuests())
+    var menuContainer = container.find('#menu-container');
     menu.forEach(function(menuItem) {
         menuContainer.append(renderMenuItemTemplate(menuItem))
     })
@@ -19,4 +19,3 @@ var PlannerView = function (container, model) {
     //                 <h3 class="menu-item__label">Lasagne</h3>
     //             </div>
 }
- 
