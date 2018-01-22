@@ -14,6 +14,10 @@
     text-align: center;
 }
 
+#introView {
+  width: 100%;
+}
+
 .menu-container {
     width: 80%;
 }
