@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 .dnp-header {
     position: fixed;
     text-align: center;
@@ -9,6 +12,9 @@
     height: 100px;
     width: 100%;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dnp-header__text {
@@ -16,8 +22,12 @@
 }
 
 .intro-container {
+    margin-top: 100px;
+    height: calc(100% - 100px);
     padding: 20px 0 20px;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .menu-container {
@@ -47,6 +57,7 @@
     visibility: hidden;
     width: 0;
     height: 0;
+    display: block;
 }
 
 .menu-item__image {
@@ -104,7 +115,9 @@
     background-color: white;
     
 }
-
+#create-new-dinner-button {
+    margin-top: 30px;
+}
 @media (max-width: 480px) {
     .main-view-container {
         display: initial;

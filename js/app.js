@@ -20,15 +20,19 @@ $(function() {
     "#plannerView": [
       $("#sidebarView"),
       $("#menuView"),
-      $("#menu-toggle-button")
+      $("#menu-toggle-button"),
+      $("#main-view-container"),
     ],
     "#dishView": [
       $("#sidebarView"),
       $("#dishView"),
-      $("#menu-toggle-button")
+      $("#menu-toggle-button"),
+      $("#main-view-container"),
     ],
     "#confirmView": [
-      $("#confirmView")
+      $("#confirmView"),
+      $("#main-view-container"),
+      
     ]
   });
   $("#menu-toggle-button").on("click", function() {
