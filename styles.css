@@ -97,7 +97,9 @@
       padding: 10px 0 10px 0;
     }
 
-    #menu-toggle-button {
+    #menu-toggle-header {
+        display: flex;
+        flex-direction: row;
         visibility: visible;
         /* display: block; */
         text-align: right;
@@ -108,4 +110,9 @@
         display: none;
         border: 2px solid black;
     }
+
+    #confirm-dinner-btn {
+      margin: 10px 0 10px 0;
+    }
+
 }

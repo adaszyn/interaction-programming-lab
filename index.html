@@ -21,11 +21,14 @@
 
     <div class="main-view-container fill">
         <a id="menu-toggle-button">
+          <div id="menu-toggle-header">
+            <div style="flex-grow:3; text-align:left;"> My Dinner </div>
+            <span> </span>
             <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </div>
         </a>
         <div id="sidebarView" class="sidebar cold-md-5 col-xs-12">
             <div class="margin-10 margin-bottom-10">
-              <h4>My dinner</h4>
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   People
@@ -52,7 +55,7 @@
               0 SEK
             </div>
             <div class="col-md-3 col-xs-2"> </div>
-            <button type="button" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
+            <button type="button" id="confirm-dinner-btn" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
             <div class="col-md-3 col-xs-2" > </div>
         </div>
         <div id="introView">

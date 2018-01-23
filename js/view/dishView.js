@@ -66,4 +66,7 @@ DishView.prototype.render = function() {
     if (dish) {
       this.container.html(renderDishView(dish));
     }
+    if(window.innerWidth < 480){
+      $('.sidebar').hide()
+    }
 }
