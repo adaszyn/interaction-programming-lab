@@ -26,4 +26,7 @@ PlannerView.prototype.render = function() {
     menu.forEach(function(menuItem) {
         menuContainer.append(renderMenuItemTemplate(menuItem))
     })
+    if(window.innerWidth < 480){
+      $('.sidebar').hide()
+    }
 }

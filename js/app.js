@@ -22,8 +22,14 @@ $(function() {
       $("#menuView"),
       $("#menu-toggle-button")
     ],
-    "#dishView": [$("#sidebarView"), $("#dishView")],
-    "#confirmView": [$("#confirmView")]
+    "#dishView": [
+      $("#sidebarView"),
+      $("#dishView"),
+      $("#menu-toggle-button")
+    ],
+    "#confirmView": [
+      $("#confirmView")
+    ]
   });
   $("#menu-toggle-button").on("click", function() {
     router.toggleView("#sidebarView");

@@ -19,7 +19,6 @@
 }
 
 .sidebar {
-    width: 40%;
     max-width: 300px;
     border: 2px solid black;
 }
@@ -105,7 +104,8 @@
         border: 2px solid black;
     }
     .sidebar {
-        width: 100%;
         max-width: initial;
+        display: none;
+        border: 2px solid black;
     }
 }
