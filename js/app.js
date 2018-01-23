@@ -32,6 +32,6 @@ $(function() {
   window.renderViews()
   window.onhashchange = function() {
     renderViews()
-    router.render.bind(router);
+    router.render();
   };
 });
