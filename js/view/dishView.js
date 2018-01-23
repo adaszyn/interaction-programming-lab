@@ -39,7 +39,7 @@ function renderDishView(menuItem) {
     <div class="row">
     <div class="col-md-6 col-xs-12">
         <h1>${menuItem.name}</h1>
-        <img class="" src="./images/${menuItem.image}" />
+        <img class="dish-preview-img" src="./images/${menuItem.image}" />
         <p>
             ${menuItem.description}
         </p>

@@ -39,21 +39,23 @@
     height: 0;
 }
 
-.search-view {
-    display: flex;
-    flex-wrap: wrap;
-}
-.menu-item {
-    width: 240px;
-    padding: 4px;
-}
 .menu-item__image {
     width: 100%;
 }
+
+#search-view {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#search-view___input{
+  margin: 0px 20px 0px 0px;
+}
+
 .confirmation-header {
 
 }
-<<<<<<< HEAD
 .cart-summary {
     display: flex;
 }
@@ -64,11 +66,8 @@
 
 .dish-preview-img {
   width: 100%;
+  max-height: 360px;
 }
-=======
-.cart-summary {}
->>>>>>> 568e899c84947a298985e0e3fffd0dd8bf6a2d77
-/* MEDIA QUERIES */
 
 @media (max-width: 480px) {
     .main-view-container {
