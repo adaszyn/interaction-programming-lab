@@ -24,24 +24,36 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </a>
         <div id="sidebarView" class="sidebar">
-            <h3>My dinner</h3>
-            People:
-            <select id="guests-number-list">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <div>
-                <div>Dish name</div>
-                <div>Dish cost</div>
+            <div class="margin-10 margin-bottom-10">
+              <h4>My dinner</h4>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  People
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                </ul>
+              </div>
             </div>
-            <div>
-                <div id="sidebar-total-price">0 SEK</div>
+            <div class="panel panel-default">
+              <!-- Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Dish Name </th> <th> Cost </th>
+                  </tr>
+                </thead>
+              </table>
             </div>
-            <button type="button" class="btn btn-secondary btn-md">Confirm dinner</button>
+            <div id="sidebar-total-price">
+              0 SEK
+            </div>
+            <div class="col-md-3"> </div>
+            <button type="button" class="btn btn-secondary btn-md col-md-6">Confirm dinner</button>
+            <div class="col-md-3"> </div>
         </div>
         <div id="introView">
             <div class="intro-container row">

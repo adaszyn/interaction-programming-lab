@@ -1,7 +1,7 @@
 function renderMenuItemTemplate(item) {
     return `
-    <a href="#dishView?id=${item.id}" class="col-md-3 col-xs-12 menu-item-container">
-        <div class="menu-item">
+    <a href="#dishView?id=${item.id}" class="menu-item-container">
+        <div class="menu-item col-md-3 col-xs-12">
           <img class="menu-item__image" src="./images/${item.image}" />
           <h3 class="menu-item__label">${item.name}</h3>
         </div>
