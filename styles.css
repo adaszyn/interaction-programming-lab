@@ -1,12 +1,13 @@
 html,
 body {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .dnp-header {
     position: fixed;
     text-align: center;
-    background-color: #EEEEEE;
+    background-color: white;
     margin: 0;
     padding: 20px 0 20px;
     top: 0;
@@ -16,11 +17,14 @@ body {
     z-index: 10;
     display: flex;
     justify-content: center;
+    box-shadow: 0 2px 13px -6px rgba(0,0,0,0.75);
+    border-bottom: 1px solid gainsboro;;
     align-items: center;
 }
 
 .dnp-header__text {
     margin: 0;
+    font-weight: lighter;
 }
 
 .intro-container {
@@ -33,7 +37,7 @@ body {
 }
 
 .menu-container {
-    width: 80%;
+    width: 100%;
 }
 
 /* SIDEBAR */
@@ -45,7 +49,7 @@ body {
     left: 0;
     position: fixed;
     z-index: 10;
-    border: 2px solid black;
+    box-shadow: 3px 0px 10px -6px rgba(0,0,0,0.75);
 }
 .sidebar-header {
     padding: 10px;
@@ -62,6 +66,7 @@ body {
     border: none;
 }
 .main-view-container {
+    background-color: #fbfbfb;
     position: absolute;
     display: flex;
     left: 300px;
@@ -79,13 +84,22 @@ body {
 }
 
 .menu-item__image {
-    width: 100%;
-    padding-top: 100%;
+    width: 200px;
+    height: 200px;
     background-size: cover;
+    display: flex;
+    margin: 10px;
+    align-items: flex-end;
+    box-shadow: 4px 4px 11px -6px rgba(0,0,0,0.75);
 }
 
 .menu-item__label {
     font-size: 15px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    padding: 10px 2px;
+    margin: 0;
 }
 
 #print-btn___container {}
@@ -204,6 +218,7 @@ body {
 
 .cart-summary-item-container {
     margin: 10px;
+    text-decoration: none;    
 }
 .cart-summary-item-container__border {
     width: 200px;
