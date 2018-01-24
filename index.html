@@ -41,9 +41,12 @@
     </div>
 
     <div id="sidebarView" class="sidebar">
+        <h3 class="sidebar-header"> My Dinner </h3>
+
         <div class="margin-left-10 margin-bottom-10 margin-top-10">
-            <div class="dropdown">
-                <select id="num-of-guests___select">
+            <div class="sidebar-dropdown">
+                People
+                <select class="sidebar-dropdown__select" id="num-of-guests___select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -52,17 +55,15 @@
                 </select>
             </div>
         </div>
-        <div class="panel panel-default">
-            <!-- Table -->
-            <table class="table" id="selected-dishes_table">
-                <thead>
-                    <tr>
-                        <th>Dish Name </th>
-                        <th> Cost </th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+        <!-- Table -->
+        <table class="table selected-dishes-table">
+            <thead>
+                <tr>
+                    <th>Dish Name </th>
+                    <th> Cost </th>
+                </tr>
+            </thead>
+        </table>
         <div id="sidebar-total-price">
             0 SEK
         </div>

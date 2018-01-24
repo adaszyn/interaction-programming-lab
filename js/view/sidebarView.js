@@ -15,7 +15,8 @@ var SidebarView = function (container, model) {
 
 SidebarView.prototype.render = function() {
   var totalPriceElement = this.container.find('#sidebar-total-price');
-  totalPriceElement.text(this.model.getTotalMenuPrice() + " SEK");
+  var totalPrice = NumberUtil.formatPrice(this.model.getTotalMenuPrice())
+  totalPriceElement.text(totalPrice + " SEK");
 
   var selectMenu = this.container.find('#num-of-guests___select');
   selectMenu

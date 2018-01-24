@@ -36,6 +36,8 @@ body {
     width: 80%;
 }
 
+/* SIDEBAR */
+
 .sidebar {
     width: 300px;
     height: 100%;
@@ -43,8 +45,22 @@ body {
     left: 0;
     position: fixed;
     z-index: 10;
+    border: 2px solid black;
 }
-
+.sidebar-header {
+    padding: 10px;
+    font-size: 19px;
+    font-weight: bold;
+}
+.sidebar-dropdown {
+}
+.sidebar-dropdown__select {
+    margin-left: 20px;
+}
+.selected-dishes-table > thead {
+    background-color: #EEEEEE;
+    border: none;
+}
 .main-view-container {
     position: absolute;
     display: flex;
@@ -109,6 +125,15 @@ body {
     display: flex;
     flex-direction: row-reverse;
     padding-right: 20px;
+    font-weight: bold;
+}
+
+#confirm-dinner-btn___a {
+    width: 100%;
+    margin-top: 10px;
+}
+#confirm-dinner-btn {
+    width: 100%;    
 }
 
 #guests-number-list {
