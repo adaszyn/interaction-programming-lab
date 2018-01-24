@@ -189,6 +189,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.cart-summary-item-price {
+    float: right;
+}
 
 .cart-summary__item-image {
     width: 200px;
