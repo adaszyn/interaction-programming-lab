@@ -62,7 +62,13 @@ var DinnerModel = function() {
             return total + ingredient.price * ingredient.quantity;
         }, 0) * this.numberOfGuests;
 
-	}
+    }
+    this.getDishPrice = function (id) {
+        var dish = this.getDish(id);
+        return dish.ingredients.reduce(function (sum, ingredient){
+            return sum + ingredient.quantity * ingredient.price;
+        }, 0) 
+    } 
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
