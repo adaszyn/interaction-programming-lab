@@ -4,6 +4,8 @@ $(function() {
   model.addDishToMenu(1)
   model.addDishToMenu(2)
   model.addDishToMenu(3)
+  model.addDishToMenu(100)
+  model.addDishToMenu(101)
   
   var views = [
     new IntroView($("#introView"), model),
