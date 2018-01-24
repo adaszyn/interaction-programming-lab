@@ -32,7 +32,7 @@ ApplicationRouter.prototype.render = function () {
         container.forEach(function(element) {
             var parsedRoute = parseRoute(window.location.hash)
             if (parsedRoute.url === route) {
-                element.css('display', "initial")
+                element.css('display', "")
             }
         })
        
@@ -40,7 +40,7 @@ ApplicationRouter.prototype.render = function () {
 }
 ApplicationRouter.prototype.toggleView = function(route) {
     if ($(route).css('display') === 'none') {
-        $(route).css('display', "initial")
+        $(route).css('display', "")
     } else {
         $(route).css('display', 'none')
 
