@@ -69,6 +69,22 @@ html, body {
     font-size: 15px;
 }
 
+.confirmation-header {
+  padding: 20px;
+}
+
+.confirm-container {
+    margin-top: 100px;
+}
+
+#confirmation-header-guests___span {
+  margin-top: 20px;
+}
+
+#confirmation-header-back___button {
+  margin-top: 20px;
+}
+
 .confirm-view-item___image {
   width: 100%;
 }
@@ -78,7 +94,7 @@ html, body {
 }
 
 #print-btn___container{
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 #search-view {

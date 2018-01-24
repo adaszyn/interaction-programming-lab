@@ -110,17 +110,19 @@
 
     <div id="confirmView" class="confirm-container col-md-12">
       <div id="confirmView" class="confirm-container">
-        <div class="row">
+        <div>
           <div class="col-md-3 hidden-xs"> </div>
-          <div class="confirmation-header col-md-6" style="padding-top: 20px;">
-              <span class="col-md-6">My Dinner: <span id="num-of-guests">3 people</span> </span>
-              <span class="col-md-6" style="text-align: right;">
-                <button class="btn btn-secondary btn-md">Go back and Edit dinner</button>
+          <div class="confirmation-header col-md-6 col-xs-12">
+              <span class="col-md-6 col-xs-12" id="confirmation-header-guests___span">My Dinner: <span id="num-of-guests">3 people</span> </span>
+              <span class="col-md-6 col-xs-12" id="confirmation-header-back___button">
+                <a href="#plannerView">
+                  <button class="btn btn-secondary btn-md">Go back and Edit dinner</button>
+                </a>
               </span>
           </div>
           <div class="col-md-3 hidden-xs"> </div>
         </div>
-        <div class="cart-summary row">
+        <div class="cart-summary">
             <div class="col-md-3 hidden-xs"> </div>
             <div class="col-md-6 col-xs-12">
               <div class="col-md-4 col-xs-12">
@@ -141,7 +143,7 @@
             </div>
             <div class="col-md-3 hidden-xs"> </div>
         </div>
-        <div id="print-btn___container row">
+        <div id="print-btn___container">
           <div class="col-md-5 col-xs-4"></div>
           <button type="button" class="btn btn-secondary col-md-2 col-xs-4">Print recipe</button>
           <div class="cold-md-5 col-xs-4"></div>
