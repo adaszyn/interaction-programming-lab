@@ -25,7 +25,7 @@ function renderIngredients(menuItem) {
       ${ingredientCells}
         <tr>
             <td>
-                <button type="button" class="btn btn-secondary btn-md">Add to cart</button>
+                <button type="button" class="ingredients-table__button btn btn-secondary btn-md">Add to cart</button>
             </td>
             <td></td>
             <td>SEK ${totalPrice}</td>
@@ -44,13 +44,15 @@ function renderDishView(menuItem) {
             ${menuItem.description}
         </p>
         <a href="#plannerView">
-            <button type="button" class="btn btn-secondary btn-md">back to search</button>
+            <button type="button" class="dnp-btn btn btn-secondary btn-md">Back to search</button>
         </a>
         <h1>PREPARATION</h1>
 
     </div>
-    <div class="col-md-6 col-xs-12">
-        Ingredients for 3 people
+    <div class="ingredients-table col-md-6 col-xs-12">
+        <h3 class="ingredients-table__header">
+            Ingredients for 3 people
+        </h3>
        ${renderIngredients(menuItem)}
     </div>
 </div>`;
