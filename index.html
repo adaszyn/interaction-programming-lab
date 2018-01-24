@@ -41,36 +41,38 @@
         </div>
 
     <div id="sidebarView" class="sidebar">
-            <div class="margin-left-10 margin-bottom-10 margin-top-10">
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  People
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <!-- Table -->
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Dish Name </th> <th> Cost </th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-            <div id="sidebar-total-price">
-              0 SEK
-            </div>
-            <div class="col-md-3 col-xs-2"> </div>
-            <button type="button" id="confirm-dinner-btn" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
-            <div class="col-md-3 col-xs-2" > </div>
+        <div class="margin-left-10 margin-bottom-10 margin-top-10">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              People
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="panel panel-default">
+          <!-- Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Dish Name </th> <th> Cost </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div id="sidebar-total-price">
+          0 SEK
+        </div>
+        <div class="col-md-3 col-xs-2"> </div>
+        <a href="#confirmView">
+          <button type="button" id="confirm-dinner-btn" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
+        </a>  
+        <div class="col-md-3 col-xs-2" > </div>
+    </div>
 
     <div class="main-view-container" id="main-view-container">
         <a id="menu-toggle-button" class="menu-toggle-button">
@@ -80,8 +82,8 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
           </div>
         </a>
-    
-        
+
+
         <div id="menuView" class="menu-container">
             <div id="search-view">
                 <span class="h3">Find a dish</span>
