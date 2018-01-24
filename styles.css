@@ -41,7 +41,6 @@ html, body {
     left: 0;
     position: fixed;
     z-index: 10;
-    background-color: white;
 }
 
 .main-view-container {
@@ -99,6 +98,10 @@ html, body {
     margin-top: 40px;
 }
 
+#total-price___container{
+  height: 300px;
+}
+
 #search-view {
   margin: 20px;
   display: flex;
@@ -139,13 +142,16 @@ html, body {
 #guests-number-list {
   margin-left: 10px;
 }
+
 #menu-toggle-header {
     background-color: white;
-
 }
+
 #create-new-dinner-button {
     margin-top: 30px;
 }
+
+
 @media (max-width: 480px) {
     .main-view-container {
         display: initial;
@@ -179,12 +185,18 @@ html, body {
         max-width: initial;
         display: none;
         width: 100%;
-        height: 20%;
+        height: 30%;
         top: 145px;
+        background-color: #dee2e8;
+        overflow: scroll;
     }
 
     #confirm-dinner-btn {
       margin: 10px 0 10px 0;
+    }
+
+    #confirm-dinner-btn___a {
+      text-align: center;
     }
     #menu-toggle-button {
         top: 100px;

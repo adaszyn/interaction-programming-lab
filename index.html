@@ -68,8 +68,8 @@
           0 SEK
         </div>
         <div class="col-md-3 col-xs-2"> </div>
-        <a href="#confirmView">
-          <button type="button" id="confirm-dinner-btn" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
+        <a href="#confirmView" id="confirm-dinner-btn___a" class="col-md-6 col-xs-8">
+          <button type="button" id="confirm-dinner-btn" class="btn btn-secondary">Confirm dinner</button>
         </a>
         <div class="col-md-3 col-xs-2" > </div>
     </div>
@@ -82,8 +82,7 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
           </div>
         </a>
-
-
+        
         <div id="menuView" class="menu-container">
             <div id="search-view">
                 <span class="h3">Find a dish</span>
@@ -141,7 +140,11 @@
                   <i class="menu-item__price">300 SEK</i>
               </div>
             </div>
-            <div class="col-md-3 hidden-xs"> </div>
+            <div id="total-price___container" class="col-md-3 hidden-xs" style="border-left: solid 2px black;">
+              Total: <br>
+              <span id="total-price___span"> 3000 SEK</span>
+
+            </div>
         </div>
         <div id="print-btn___container" class="row">
           <div class="col-md-5 col-xs-4"></div>
