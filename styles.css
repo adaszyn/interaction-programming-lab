@@ -1,6 +1,8 @@
-html, body {
+html,
+body {
     height: 100%;
 }
+
 .dnp-header {
     position: fixed;
     text-align: center;
@@ -62,86 +64,59 @@ html, body {
 
 .menu-item__image {
     width: 100%;
-    padding-top:100%;
+    padding-top: 100%;
     background-size: cover;
 }
+
 .menu-item__label {
     font-size: 15px;
-}
-
-.confirmation-header {
-  padding: 20px;
-}
-
-.confirm-container {
-    margin-top: 100px;
-    padding-bottom: 20px;
-}
-
-#confirmation-header-guests___span {
-  margin-top: 20px;
-}
-
-#confirmation-header-back___button {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.confirm-view-item___image {
-  width: 100%;
 }
 
 .confirm-view-item___label {
     font-size: 15px;
 }
 
-#print-btn___container{
-    margin-top: 40px;
-}
-
-#total-price___container{
-  height: 300px;
-}
+#print-btn___container {}
 
 #search-view {
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-#search-view___input{
-  margin: 0px 20px 0px 0px;
+#search-view___input {
+    margin: 0px 20px 0px 0px;
 }
 
-.dish-container{
-  padding: 10px 20px 10px 20px;
+.dish-container {
+    padding: 10px 20px 10px 20px;
 }
 
 .dish-preview-img {
-  width: 100%;
-  max-height: 360px;
+    width: 100%;
+    max-height: 360px;
 }
 
 .margin-left-10 {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 .margin-top-10 {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .margin-bottom-10 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #sidebar-total-price {
-  display: flex;
-  flex-direction: row-reverse;
-  padding-right: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 20px;
 }
 
 #guests-number-list {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 #menu-toggle-header {
@@ -153,17 +128,90 @@ html, body {
 }
 
 
+/* ------------ */
+
+
+/* CONFIRM VIEW */
+
+.confirm-container {
+    padding-bottom: 20px;
+    margin: 100px auto 0;
+    justify-content: center;
+}
+
+.confirm-header {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.confirmation-footer {
+    border-top: 2px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cart-summary__items {
+    display: flex;
+    padding: 30px;
+    flex-grow: 8;
+    justify-content: space-around;
+}
+
+.cart-summary__item {
+    width: 200px;
+    height: 200px;
+}
+
+.cart-summary__left-sidebar {
+    flex-grow: 3;
+}
+
+.cart-summary__price-container {
+    flex-grow: 3;
+    border-left: 2px solid black;
+}
+
+.cart-summary__item-container {}
+
+.cart-summary__item-image {
+    width: 200px;
+    height: 200px;
+}
+
+.confirmation-header {
+    padding: 10px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.confirmation-header-text {
+    margin-top: 0;
+}
+.confirm-view-item___image {
+    width: 200px;
+    padding: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 @media (max-width: 480px) {
     .main-view-container {
         display: initial;
         width: auto;
         left: initial;
     }
-
-    .dish-container{
-      padding: 10px 0 10px 0;
+    .dish-container {
+        padding: 10px 0 10px 0;
     }
-
     #menu-toggle-header {
         display: flex;
         flex-direction: row;
@@ -171,17 +219,14 @@ html, body {
         text-align: right;
         padding: 10px;
     }
-
-    #menu-toggle-header > #label {
-        flex-grow:5;
-        text-align:left;
+    #menu-toggle-header>#label {
+        flex-grow: 5;
+        text-align: left;
     }
-
-    #menu-toggle-header > #price {
-        flex-grow:3;
-        text-align:left;
+    #menu-toggle-header>#price {
+        flex-grow: 3;
+        text-align: left;
     }
-
     .sidebar {
         max-width: initial;
         display: none;
@@ -191,13 +236,11 @@ html, body {
         background-color: #dee2e8;
         overflow: scroll;
     }
-
     #confirm-dinner-btn {
-      margin: 10px 0 10px 0;
+        margin: 10px 0 10px 0;
     }
-
     #confirm-dinner-btn___a {
-      text-align: center;
+        text-align: center;
     }
     #menu-toggle-button {
         top: 100px;
@@ -206,12 +249,10 @@ html, body {
         height: 45px;
         z-index: 20;
     }
-
     #confirmation-header-guests___span {
         text-align: center;
     }
-
     #confirmation-header-back___button {
-      text-align: center;
+        text-align: center;
     }
 }

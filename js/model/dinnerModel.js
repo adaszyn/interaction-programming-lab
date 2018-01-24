@@ -1,13 +1,23 @@
+function getObjectKeys (object) {
+    var keys = []
+    for (var key in object) {
+        if (object.hasOwnProperty(key)) {
+            keys.push(key)
+        }
+    }
+    return keys;
+}
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
     this.numberOfGuests = 2;
     this.menu = {};
 
+    
 	this.setNumberOfGuests = function(number) {
         this.numberOfGuests = number;
         return this;
-	}
+    }
 
 	this.getNumberOfGuests = function() {
 		return this.numberOfGuests;
@@ -17,7 +27,7 @@ var DinnerModel = function() {
 	this.getSelectedDish = function(type) {
         var result = [];
         for (id in this.menu) {
-            if (this.menu.hasOwnPropertyOf(id)) {
+            if (this.menu.hasOwnProperty(id)) {
                 var dish = this.menu[id];
                 if (dish.type === type) {
                     result.push(dish);
@@ -29,14 +39,15 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return this.menu;
+        var menuIds = getObjectKeys(this.menu)
+        return menuIds.map(this.getDish)
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
         var result = []
         for (id in this.menu) {
-            if (this.menu.hasOwnPropertyOf(id)) {
+            if (this.menu.hasOwnProperty(id)) {
                 var dish = this.menu[id];
                 result = result.concat(dish.ingredients)
             }

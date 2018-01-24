@@ -19,83 +19,84 @@
         <h1 class="dnp-header__text">Dinner planner</h1>
     </div>
     <div id="introView">
-            <div class="intro-container row">
-                <!-- Useless empty div to center -->
-                <div class="col-md-3 col-xs-1"></div>
-                <div class="col-md-6 col-xs-10">
-                    <div>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Velit egestas dui id ornare arcu odio ut sem nulla. Id aliquet lectus proin nibh nisl condimentum
-                        id venenatis a. Vitae semper quis lectus nulla at volutpat diam ut. Imperdiet sed euismod nisi porta
-                        lorem mollis. Mattis nunc sed blandit libero volutpat. Senectus et netus et malesuada fames ac turpis
-                        egestas. Facilisi etiam dignissim diam quis enim. Turpis egestas pretium aenean pharetra magna ac.
-                        Ullamcorper morbi tincidunt ornare massa eget egestas purus. Vitae et leo duis ut diam.
-                    </div>
-                    <a href="#plannerView">
-                        <button type="button" id="create-new-dinner-button" class="btn btn-primary btn-lg">Create New Dinner</button>
-                    </a>
+        <div class="intro-container row">
+            <!-- Useless empty div to center -->
+            <div class="col-md-3 col-xs-1"></div>
+            <div class="col-md-6 col-xs-10">
+                <div>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Velit egestas dui id ornare arcu odio ut sem nulla. Id aliquet lectus proin nibh nisl condimentum id
+                    venenatis a. Vitae semper quis lectus nulla at volutpat diam ut. Imperdiet sed euismod nisi porta lorem
+                    mollis. Mattis nunc sed blandit libero volutpat. Senectus et netus et malesuada fames ac turpis egestas.
+                    Facilisi etiam dignissim diam quis enim. Turpis egestas pretium aenean pharetra magna ac. Ullamcorper
+                    morbi tincidunt ornare massa eget egestas purus. Vitae et leo duis ut diam.
                 </div>
-                <!-- Useless empty div to center -->
-                <div class="col-md-3 col-xs-1"></div>
+                <a href="#plannerView">
+                    <button type="button" id="create-new-dinner-button" class="btn btn-primary btn-lg">Create New Dinner</button>
+                </a>
             </div>
+            <!-- Useless empty div to center -->
+            <div class="col-md-3 col-xs-1"></div>
         </div>
+    </div>
 
     <div id="sidebarView" class="sidebar">
         <div class="margin-left-10 margin-bottom-10 margin-top-10">
-          <div class="dropdown">
-            <select id="num-of-guests___select">
-               <option value="1">1</option>
-               <option value="2">2</option>
-               <option value="3">3</option>
-               <option value="4">4</option>
-               <option value="5">5</option>
-             </select>
-          </div>
+            <div class="dropdown">
+                <select id="num-of-guests___select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
         </div>
         <div class="panel panel-default">
-          <!-- Table -->
-          <table class="table" id="selected-dishes_table">
-            <thead>
-              <tr>
-                <th>Dish Name </th> <th> Cost </th>
-              </tr>
-            </thead>
-          </table>
+            <!-- Table -->
+            <table class="table" id="selected-dishes_table">
+                <thead>
+                    <tr>
+                        <th>Dish Name </th>
+                        <th> Cost </th>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <div id="sidebar-total-price">
-          0 SEK
+            0 SEK
         </div>
         <div class="col-md-3 col-xs-2"> </div>
         <a href="#confirmView" id="confirm-dinner-btn___a" class="col-md-6 col-xs-8">
-          <button type="button" id="confirm-dinner-btn" class="btn btn-secondary">Confirm dinner</button>
+            <button type="button" id="confirm-dinner-btn" class="btn btn-secondary">Confirm dinner</button>
         </a>
-        <div class="col-md-3 col-xs-2" > </div>
+        <div class="col-md-3 col-xs-2"> </div>
     </div>
 
     <div class="main-view-container" id="main-view-container">
         <a id="menu-toggle-button" class="menu-toggle-button">
-          <div id="menu-toggle-header">
-            <div id="label"> My Dinner </div>
-            <span id="price"></span>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-          </div>
+            <div id="menu-toggle-header">
+                <div id="label"> My Dinner </div>
+                <span id="price"></span>
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
         </a>
 
         <div id="menuView" class="menu-container">
             <div id="search-view">
                 <span class="h3">Find a dish</span>
                 <div class="search-view-controls">
-                  <input type="text" id="search-view___input" placeholder="Enter keywords" />
-                  <select id="search-view___select">
-                      <option>All</option>
-                      <option>Main Course</option>
-                      <option>Side Dish</option>
-                      <option>Dessert</option>
-                      <option>Appetizer</option>
-                  </select>
-                  <button type="button" class="btn btn-secondary btn-md">Search</button>
+                    <input type="text" id="search-view___input" placeholder="Enter keywords" />
+                    <select id="search-view___select">
+                        <option>All</option>
+                        <option>Main Course</option>
+                        <option>Side Dish</option>
+                        <option>Dessert</option>
+                        <option>Appetizer</option>
+                    </select>
+                    <button type="button" class="btn btn-secondary btn-md">Search</button>
                 </div>
-              </div>
+            </div>
             <div class="search-view col-md-12 col-xs-12" id="menu-container">
 
             </div>
@@ -106,40 +107,30 @@
     </div>
 
     <div id="confirmView" class="confirm-container col-md-12">
-      <div id="confirmView" class="confirm-container">
-        <div class="row">
-          <div class="col-md-3 hidden-xs"> </div>
-          <div class="confirmation-header col-md-6 col-xs-12 row">
-              <span class="col-md-6 col-xs-12" id="confirmation-header-guests___span">My Dinner: <span id="num-of-guests">3 people</span> </span>
-              <span class="col-md-6 col-xs-12" id="confirmation-header-back___button">
-                <a href="#plannerView">
-                  <button class="btn btn-secondary btn-md">Go back and Edit dinner</button>
+        <div class="confirm-header">
+            <div class="confirmation-header">
+                <h3 class="confirmation-header-text">My Dinner:
+                    <span id="num-of-guests">3 people</span>
+                </h3>
+                <a href="#plannerView" class="confirmation-header-back-button">
+                    <button class="btn btn-secondary btn-md">Go back and Edit dinner</button>
                 </a>
-              </span>
-          </div>
-          <div class="col-md-3 hidden-xs"> </div>
-        </div>
-        <div class="cart-summary row">
-            <div class="col-md-3 hidden-xs"> </div>
-            <div class="col-md-6 col-xs-12" id="menu-container___div">
-              <div class="col-md-4 col-xs-12">
-                  <img class="confirm-view-item___image" src="./images/bakedbrie.jpg" />
-                  <h3 class="confirm-view-item___label">Lasagne</h3>
-                  <i class="menu-item__price">300 SEK</i>
-              </div>
             </div>
-            <div id="total-price___container" class="col-md-3 hidden-xs" style="border-left: solid 2px black;">
-              Total: <br>
-              <span id="total-price___span"> 3000 SEK</span>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-summary__left-sidebar" id="total-price___container" class="col-md-3 hidden-xs">
+            </div>
 
+            <div class="cart-summary__items" id="menu-container___div"></div>
+            <div class="cart-summary__price-container" id="total-price___container" class="col-md-3 hidden-xs">
+                Total:
+                <br>
+                <span id="total-price___span"> 3000 SEK</span>
             </div>
         </div>
-        <div id="print-btn___container" class="row">
-          <div class="col-md-5 col-xs-4"></div>
-          <button type="button" class="btn btn-secondary col-md-2 col-xs-4">Print recipe</button>
-          <div class="cold-md-5 col-xs-4"></div>
+        <div class="confirmation-footer" id="print-btn___container">
+            <button type="button" class="btn btn-secondary col-md-2 col-xs-4">Print recipe</button>
         </div>
-      </div>
     </div>
 
     <!-- jQuery -->

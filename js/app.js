@@ -1,8 +1,10 @@
 $(function() {
-  //We instantiate our model
   var model = new DinnerModel();
 
-  // And create the instance of ExampleView
+  model.addDishToMenu(1)
+  model.addDishToMenu(2)
+  model.addDishToMenu(3)
+  
   var views = [
     new IntroView($("#introView"), model),
     new PlannerView($("#plannerView"), model),
