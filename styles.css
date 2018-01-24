@@ -69,6 +69,18 @@ html, body {
     font-size: 15px;
 }
 
+.confirm-view-item___image {
+  width: 100%;
+}
+
+.confirm-view-item___label {
+    font-size: 15px;
+}
+
+#print-btn___container{
+    margin-top: 20px;
+}
+
 #search-view {
   margin: 20px;
   display: flex;
@@ -77,13 +89,6 @@ html, body {
 
 #search-view___input{
   margin: 0px 20px 0px 0px;
-}
-
-.confirmation-header {
-
-}
-.cart-summary {
-    display: flex;
 }
 
 .dish-container{
@@ -118,7 +123,7 @@ html, body {
 }
 #menu-toggle-header {
     background-color: white;
-    
+
 }
 #create-new-dinner-button {
     margin-top: 30px;

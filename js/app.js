@@ -31,8 +31,6 @@ $(function() {
     ],
     "#confirmView": [
       $("#confirmView"),
-      $("#main-view-container"),
-      
     ]
   });
   $("#menu-toggle-button").on("click", function() {

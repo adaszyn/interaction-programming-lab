@@ -70,7 +70,7 @@
         <div class="col-md-3 col-xs-2"> </div>
         <a href="#confirmView">
           <button type="button" id="confirm-dinner-btn" class="btn btn-secondary btn-md col-md-6 col-xs-8">Confirm dinner</button>
-        </a>  
+        </a>
         <div class="col-md-3 col-xs-2" > </div>
     </div>
 
@@ -106,38 +106,47 @@
         <div id="dishView" class="dish-container">
 
         </div>
-        <div id="confirmView" class="confirm-container col-md-12">
-            <div class="confirmation-header col-md-12 row">
-                <span class="col-md-6 h3">My Dinner: <span id="num-of-guests">3 people</span> </span>
-                <span class="col-md-6" style="text-align:right;">
-                  <button class="btn btn-secondary btn-md h3">Go back and edit dinner</button>
-                </span>
-            </div>
-            <div class="cart-summary col-md-12">
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                    <i class="menu-item__price">300 SEK</i>
+    </div>
 
-                </div>
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                    <i class="menu-item__price">300 SEK</i>
-                </div>
-                <div class="menu-item">
-                    <img class="menu-item__image" src="./images/bakedbrie.jpg" />
-                    <h3 class="menu-item__label">Lasagne</h3>
-                    <i class="menu-item__price">300 SEK</i>
-                </div>
-                <div class="menu-item">
-                    <h3 class="menu-item__label">Total</h3>
-                    <i class="menu-item__price">900 SEK</i>
-                </div>
-            </div>
-            <button type="button" class="btn btn-secondary btn-md">Print recipe</button>
-
+    <div id="confirmView" class="confirm-container col-md-12">
+      <div id="confirmView" class="confirm-container">
+        <div class="row">
+          <div class="col-md-3 hidden-xs"> </div>
+          <div class="confirmation-header col-md-6" style="padding-top: 20px;">
+              <span class="col-md-6">My Dinner: <span id="num-of-guests">3 people</span> </span>
+              <span class="col-md-6" style="text-align: right;">
+                <button class="btn btn-secondary btn-md">Go back and Edit dinner</button>
+              </span>
+          </div>
+          <div class="col-md-3 hidden-xs"> </div>
         </div>
+        <div class="cart-summary row">
+            <div class="col-md-3 hidden-xs"> </div>
+            <div class="col-md-6 col-xs-12">
+              <div class="col-md-4 col-xs-12">
+                  <img class="confirm-view-item___image" src="./images/bakedbrie.jpg" />
+                  <h3 class="confirm-view-item___label">Lasagne</h3>
+                  <i class="menu-item__price">300 SEK</i>
+              </div>
+              <div class="col-md-4 col-xs-12">
+                  <img class="confirm-view-item___image" src="./images/bakedbrie.jpg" />
+                  <h3 class="confirm-view-item___label">Lasagne</h3>
+                  <i class="menu-item__price">300 SEK</i>
+              </div>
+              <div class="col-md-4 col-xs-12">
+                  <img class="confirm-view-item___image" src="./images/bakedbrie.jpg" />
+                  <h3 class="confirm-view-item___label">Lasagne</h3>
+                  <i class="menu-item__price">300 SEK</i>
+              </div>
+            </div>
+            <div class="col-md-3 hidden-xs"> </div>
+        </div>
+        <div id="print-btn___container row">
+          <div class="col-md-5 col-xs-4"></div>
+          <button type="button" class="btn btn-secondary col-md-2 col-xs-4">Print recipe</button>
+          <div class="cold-md-5 col-xs-4"></div>
+        </div>
+      </div>
     </div>
 
     <!-- jQuery -->
