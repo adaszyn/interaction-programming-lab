@@ -1,9 +1,10 @@
 function renderDishItemTemplate(dish){
   return `
-    <div class="cart-summary__item-container">
-        <div class="cart-summary__item-image" style="background-image: url(./images/${dish.image})" />
-        <h3 class="confirm-view-item___label">${dish.name}</h3>
-        <i class="menu-item__price">${dish.price} SEK</i>
+    <div class="cart-summary-item-container">
+    <div class="cart-summary-item-container__border" style="background-image: url(./images/${dish.image})" >
+        <h3 class="cart-summary-item-container__label">${dish.name}</h3>
+    </div>
+    <i class="menu-item__price">${dish.price} SEK</i>
     </div>
   `
 }
