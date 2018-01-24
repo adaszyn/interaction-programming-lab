@@ -75,6 +75,7 @@ html, body {
 
 .confirm-container {
     margin-top: 100px;
+    padding-bottom: 20px;
 }
 
 #confirmation-header-guests___span {
@@ -83,6 +84,7 @@ html, body {
 
 #confirmation-header-back___button {
   margin-top: 20px;
+  text-align: right;
 }
 
 .confirm-view-item___image {
@@ -192,4 +194,11 @@ html, body {
         z-index: 20;
     }
 
+    #confirmation-header-guests___span {
+        text-align: center;
+    }
+
+    #confirmation-header-back___button {
+      text-align: center;
+    }
 }
