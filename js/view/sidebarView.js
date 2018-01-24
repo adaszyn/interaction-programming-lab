@@ -22,9 +22,9 @@ SidebarView.prototype.render = function() {
     .find("option[value='"+ this.model.numberOfGuests + "']")
     .prop('selected', true);
 
-  var selectedDishesTable = this.container.find('#selected-dishes___table');
-  var selectedDishes = this.model.getFullMenu();
-  $.each(selectedDishes, function(dish){
-    selectedDishesTable.append(renderTableItemTemplate(dish));
+  var menuTable = this.container.find('#selected-dishes___table');
+  var menu = this.model.getFullMenu();
+  $.each(menu, function(dish){
+    menuTable.append(renderTableItemTemplate(dish));
   });
 }

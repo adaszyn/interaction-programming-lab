@@ -15,10 +15,11 @@ var PlannerView = function (container, model) {
 }
 
 PlannerView.prototype.render = function() {
-    var menu = this.model.getFullMenu()
+    var menu = this.model.getAllDishes();
     var menuContainer = $('#menu-container');
     this.container.find('#guests-number-list')
         .val(this.model.getNumberOfGuests())
+
     menu.forEach(function(menuItem) {
         menuContainer.append(renderMenuItemTemplate(menuItem))
     })

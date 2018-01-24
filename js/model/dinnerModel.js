@@ -29,7 +29,7 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return dishes;
+		return this.menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -38,7 +38,7 @@ var DinnerModel = function() {
         for (id in this.menu) {
             if (this.menu.hasOwnPropertyOf(id)) {
                 var dish = this.menu[id];
-                result = result.cocat(dish.ingredients)
+                result = result.concat(dish.ingredients)
             }
         }
         return result;
@@ -71,7 +71,10 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
+	this.getAllDishes = function (type, filter) {
+    if(typeof type === 'undefined'){
+      return dishes;
+    }
 	  return dishes.filter(function(dish) {
 		var found = true;
 		if(filter){
@@ -81,8 +84,7 @@ var DinnerModel = function() {
 					found = true;
 				}
 			});
-			if(dish.name.indexOf(filter) != -1)
-			{
+			if(dish.name.indexOf(filter) != -1) {
 				found = true;
 			}
 		}
