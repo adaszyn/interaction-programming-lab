@@ -270,10 +270,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .confirmation-header-text {
-  margin: 0;
+  margin: 10px 0;
   font-weight: 300;
 }
 
@@ -290,6 +291,11 @@ body {
   padding: 10px 2px;
   margin: 0;
   text-align: center;
+}
+.cart-summary__price-value {
+    color: #614e14;
+    font-size: 19px;
+  font-weight: bold;
 }
 /* PLANNER VIEW */
 .search-view {
