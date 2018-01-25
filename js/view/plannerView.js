@@ -17,7 +17,7 @@ var PlannerView = function (container, model) {
 
 PlannerView.prototype.render = function() {
     var menu = this.model.getAllDishes();
-    var menuContainer = $('#menu-container');
+    var menuContainer = this.container.find('#menu-container');
     this.container.find('#guests-number-list')
         .val(this.model.getNumberOfGuests())
 
