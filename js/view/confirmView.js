@@ -23,5 +23,7 @@ ConfirmView.prototype.render = function() {
     var formattedPrice = NumberUtil.formatPrice(price)
     menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
   });
-  this.container.find('#total-price___span').text(this.model.getTotalMenuPrice());
+  var price = this.model.getTotalMenuPrice()
+  var formattedPrice = NumberUtil.formatPrice(price) + " SEK"
+  this.container.find('#total-price___span').text(formattedPrice);
 }

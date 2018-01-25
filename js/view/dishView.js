@@ -36,7 +36,6 @@ function renderIngredients(menuItem) {
 }
 function renderDishView(menuItem) {
   return `
-    <div class="row">
     <div class="col-md-6 col-xs-12">
         <h1>${menuItem.name}</h1>
         <img class="dish-preview-img" src="./images/${menuItem.image}" />
@@ -54,7 +53,6 @@ function renderDishView(menuItem) {
             Ingredients for 3 people
         </h3>
        ${renderIngredients(menuItem)}
-    </div>
 </div>`;
 }
 var DishView = function(container, model) {
