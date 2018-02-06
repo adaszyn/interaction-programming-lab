@@ -1,7 +1,11 @@
 // Base constructor used as prototype
 // for all other views.
 function View (container, model) {
-    this._element = container;    
+    var isSuperContructorCalled = container && model
+    if (isSuperContructorCalled) {
+        this._element = container; 
+        this._observerId = model.addObserver(this.update.bind(this)); 
+    }
 }
 
 View.prototype.hide = function (container, model) {

@@ -17,6 +17,7 @@ var DinnerModel = function() {
     
 	this.setNumberOfGuests = function(number) {
         this.numberOfGuests = number;
+        notifyObservers()
         return this;
     }
 
@@ -79,6 +80,7 @@ var DinnerModel = function() {
             throw "Dish does not exist."
         }
         this.menu[id] = dish;
+        notifyObservers()
 	}
 
 	//Removes dish from menu

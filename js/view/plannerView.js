@@ -21,6 +21,7 @@ PlannerView.prototype = new View()
 PlannerView.prototype.update = function() {
     var menu = this.model.getAllDishes();
     var menuContainer = this.container.find('#menu-container');
+    menuContainer.html('');
     this.container.find('#guests-number-list')
         .val(this.model.getNumberOfGuests())
 
