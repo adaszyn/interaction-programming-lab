@@ -42,7 +42,7 @@ function renderDishView(menuItem) {
         <p>
             ${menuItem.description}
         </p>
-        <a href="#plannerView">
+        <a href="#planner">
             <button type="button" class="dnp-btn btn btn-secondary btn-md">Back to search</button>
         </a>
         <h1>PREPARATION</h1>
@@ -56,11 +56,13 @@ function renderDishView(menuItem) {
 </div>`;
 }
 var DishView = function(container, model) {
+    View.call(this, container, model)
     this.container = container;
     this.model = model;
 };
+DishView.prototype = new View()
 
-DishView.prototype.render = function() {
+DishView.prototype.update = function() {
     var routeParams = parseRoute(window.location.hash);
     var dish = this.model.getDish(routeParams.params.id);
     if (dish) {

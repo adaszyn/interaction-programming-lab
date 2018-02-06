@@ -9,11 +9,14 @@ function renderTableItemTemplate(dish){
 }
 
 var SidebarView = function (container, model) {
+    View.call(this, container, model)
+
     this.container = container;
     this.model = model;
 }
+SidebarView.prototype = new View()
 
-SidebarView.prototype.render = function() {
+SidebarView.prototype.update = function() {
   var totalPriceElement = this.container.find('#sidebar-total-price');
   var totalPrice = NumberUtil.formatPrice(this.model.getTotalMenuPrice())
   totalPriceElement.text(totalPrice + " SEK");

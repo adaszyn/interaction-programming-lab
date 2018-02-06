@@ -7,44 +7,46 @@ $(function() {
   model.addDishToMenu(100)
   model.addDishToMenu(101)
   
-  var views = [
-    new IntroView($("#introView"), model),
-    new PlannerView($("#plannerView"), model),
-    new MenuView($("#menuView"), model),
-    new SidebarView($("#sidebarView"), model),
-    new DishView($("#dishView"), model),
-    new ConfirmView($("#confirmView"), model)
-  ];
-  window.renderViews = function() {
-    views.forEach(function(view) {
-        view.render()
-    })
+  var views = {
+    intro: new IntroView($("#introView"), model),
+    planner: new PlannerView($("#plannerView"), model),
+    menu: new MenuView($("#menuView"), model),
+    sidebar: new SidebarView($("#sidebarView"), model),
+    dish: new DishView($("#dishView"), model),
+    confirm: new ConfirmView($("#confirmView"), model)
+  };
+  window.updateViews = function() {
+    for (let viewKey in views) {
+        if (views.hasOwnProperty(viewKey)) {
+            views[viewKey].update()
+        }
+    }
   };
   var router = new ApplicationRouter({
-    "": $("#introView"),
-    "#plannerView": [
-      $("#sidebarView"),
-      $("#menuView"),
+    "": views.intro,
+    "#planner": [
+      views.sidebar,
+      views.menu,
       $("#menu-toggle-button"),
       $("#main-view-container"),
     ],
-    "#dishView": [
-      $("#sidebarView"),
-      $("#dishView"),
+    "#dish": [
+      views.sidebar,
+      views.dish,
       $("#menu-toggle-button"),
       $("#main-view-container"),
     ],
-    "#confirmView": [
-      $("#confirmView"),
+    "#confirm": [
+      views.confirm,
     ]
   });
   $("#menu-toggle-button").on("click", function() {
-    router.toggleView("#sidebarView");
+    router.toggleElement($("#sidebarView"));
   });
-  router.render();
-  window.renderViews()
+  router.update();
+  window.updateViews()
   window.onhashchange = function() {
-    renderViews()
-    router.render();
+    updateViews()
+    router.update();
   };
 });

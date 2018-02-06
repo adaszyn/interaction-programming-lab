@@ -1,6 +1,6 @@
 function renderMenuItemTemplate(item) {
     return `
-    <a href="#dishView?id=${item.id}" class="menu-item-container">
+    <a href="#dish?id=${item.id}" class="menu-item-container">
         <div class="menu-item">
           <div class="menu-item__image" style="background-image: url('./images/${item.image}')">
               <h3 class="menu-item__label">${item.name}</h3>
@@ -11,11 +11,14 @@ function renderMenuItemTemplate(item) {
 }
 
 var PlannerView = function (container, model) {
+    View.call(this, container, model)
+
     this.container = container;
     this.model = model;
 }
+PlannerView.prototype = new View()
 
-PlannerView.prototype.render = function() {
+PlannerView.prototype.update = function() {
     var menu = this.model.getAllDishes();
     var menuContainer = this.container.find('#menu-container');
     this.container.find('#guests-number-list')

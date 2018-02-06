@@ -13,36 +13,45 @@ function parseRoute(route) {
         }, {})
     }
 }
-ApplicationRouter.prototype.render = function () {
+ApplicationRouter.prototype.update = function () {
     for (var route in this.routesMap) {
-        var container = this.routesMap[route];
-        if (!$.isArray(container)) {
-            container = [container]
+        var views = this.routesMap[route];
+        if (!$.isArray(views)) {
+            views = [views]
         }
-        container.forEach(function(element) {
-            element.css('display', 'none')
+        views.forEach(function(view) {
+            if (view instanceof View) {
+                view.hide();
+            } else {
+                view.css('display', "none")
+            }
         })
     }
     
     for (var route in this.routesMap) {
-        var container = this.routesMap[route];
-        if (!$.isArray(container)) {
-            container = [container]
+        var views = this.routesMap[route];
+        if (!$.isArray(views)) {
+            views = [views]
         }
-        container.forEach(function(element) {
+        views.forEach(function(view) {
             var parsedRoute = parseRoute(window.location.hash)
+
             if (parsedRoute.url === route) {
-                element.css('display', "")
+                if (view instanceof View) {
+                    view.show();
+                } else {
+                    view.css('display', "")
+                }
             }
         })
        
     }
 }
-ApplicationRouter.prototype.toggleView = function(route) {
-    if ($(route).css('display') === 'none') {
-        $(route).css('display', "")
+ApplicationRouter.prototype.toggleElement = function(element) {
+    if (element.css('display') === 'none') {
+        element.css('display', "")
     } else {
-        $(route).css('display', 'none')
+        element.css('display', 'none')
 
     }
 }

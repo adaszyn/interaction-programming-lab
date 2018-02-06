@@ -9,10 +9,11 @@ function getObjectKeys (object) {
 }
 //DinnerModel Object constructor
 var DinnerModel = function() {
-
+    
     this.numberOfGuests = 2;
     this.menu = {};
-
+    var observers = {};
+    var currentObserverId = 0;
     
 	this.setNumberOfGuests = function(number) {
         this.numberOfGuests = number;
@@ -116,7 +117,21 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
-	}
+    }
+    this.addObserver = function(callback) {
+        observers[currentObserverId] = callback;
+        return currentObserverId++;
+    }
+
+    var notifyObservers = function() {
+        getObjectKeys(observers).forEach(function (observerId) {
+            observers[observerId]()
+        })
+    }
+
+    this.removeObserver = function (observerId) {
+        delete observers[observerId];
+    }
 
 
 	// the dishes variable contains an array of all the

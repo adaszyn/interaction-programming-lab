@@ -10,11 +10,14 @@ function renderDishItemTemplate(dish, price){
 }
 
 var ConfirmView = function (container, model) {
+    View.call(this, container, model)
+
     this.container = container;
     this.model = model;
 }
+ConfirmView.prototype = new View()
 
-ConfirmView.prototype.render = function() {
+ConfirmView.prototype.update = function() {
   var model = this.model;
   var menu = model.getFullMenu();
   var menuGridContainer = this.container.find('#menu-container___div');
