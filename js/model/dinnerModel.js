@@ -9,12 +9,12 @@ function getObjectKeys (object) {
 }
 //DinnerModel Object constructor
 var DinnerModel = function() {
-    
+
     this.numberOfGuests = 2;
     this.menu = {};
     var observers = {};
     var currentObserverId = 0;
-    
+
 	this.setNumberOfGuests = function(number) {
         this.numberOfGuests = number;
         notifyObservers()
@@ -69,8 +69,8 @@ var DinnerModel = function() {
         var dish = this.getDish(id);
         return dish.ingredients.reduce(function (sum, ingredient){
             return sum + ingredient.quantity * ingredient.price;
-        }, 0) 
-    } 
+        }, 0)
+    }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
@@ -88,28 +88,52 @@ var DinnerModel = function() {
 		delete this.menu[id];
 	}
 
+  var search_results;
+  this.setSearchResults = function(category, search_term){
+    search_results = dishes.filter(function(dish){
+      var found;
+      if(dish.name.indexOf(search_term)!=-1) {
+         found = true;
+      } else {
+        dish.ingredients.forEach(function(ingredient){
+          if(ingredient.name.indexOf(search_term)!=-1){
+            found = true;
+            break;
+          }
+        });
+        if(category == 'all')
+          return found;
+        return found && (category == dish.type);
+      }
+    });
+    notifyObservers();
+  }
+
+  this.getSearchResults = function(){
+    if(typeof search_results === 'undefined'){
+      search_results = dishes;
+    }
+    return search_results;
+  }
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type, filter) {
-    if(typeof type === 'undefined'){
-      return dishes;
-    }
 	  return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1) {
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });
+  		var found = true;
+    		if(filter){
+    			found = false;
+    			dish.ingredients.forEach(function(ingredient) {
+    				if(ingredient.name.indexOf(filter)!=-1) {
+    					found = true;
+    				}
+    			});
+    			if(dish.name.indexOf(filter) != -1) {
+    				found = true;
+    			}
+    		}
+  	  	return dish.type == type && found;
+  	  });
 	}
 
 	//function that returns a dish of specific ID

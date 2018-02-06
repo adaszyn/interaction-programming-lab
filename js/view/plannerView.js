@@ -19,7 +19,7 @@ var PlannerView = function (container, model) {
 PlannerView.prototype = new View()
 
 PlannerView.prototype.update = function() {
-    var menu = this.model.getAllDishes();
+    var menu = this.model.getSearchResults();
     var menuContainer = this.container.find('#menu-container');
     menuContainer.html('');
     this.container.find('#guests-number-list')
