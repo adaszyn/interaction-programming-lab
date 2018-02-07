@@ -90,22 +90,12 @@ var DinnerModel = function() {
 
   var search_results;
   this.setSearchResults = function(category, search_term){
-    search_results = dishes.filter(function(dish){
-      var found;
-      if(dish.name.indexOf(search_term)!=-1) {
-         found = true;
-      } else {
-        dish.ingredients.forEach(function(ingredient){
-          if(ingredient.name.indexOf(search_term)!=-1){
-            found = true;
-            return false; //break
-          }
-        });
-        if(category == 'all')
-          return found;
-        return found && (category == dish.type);
-      }
-    });
+    search_results = dishes.filter((dish) => {
+        if (category === 'all') {
+            return dish.name.includes(search_term) 
+        }
+        return dish.name.includes(search_term) && dish.type === category
+    })
     notifyObservers();
   }
 

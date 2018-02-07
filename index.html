@@ -92,11 +92,11 @@
                         <input type="text" id="search-view___input" placeholder="Enter keywords" />
                         <select id="search-view___select">
                             <option value="all">All</option>
-                            <option value="starter">Main Course</option>
-                            <option value="main dish">Side Dish</option>
+                            <option value="main dish">Main Course</option>
+                            <option value="starter">Starter</option>
                             <option value="dessert">Dessert</option>
                         </select>
-                        <button id="search___btn" type="button" class="btn btn-secondary btn-md">Search</button>
+                        <button id="search___btn-dinner" type="button" class="btn btn-secondary btn-md">Search</button>
                     </div>
                 </div>
                 <div class="search-view col-md-12 col-xs-12" id="menu-container">
@@ -146,15 +146,19 @@
     <script src="js/view/View.js"></script>
     <script src="js/util/router.js"></script>
     <script src="js/util/number.js"></script>
-    <script src="js/app.js"></script>
     <script src="js/model/dinnerModel.js"></script>
+    <!-- VIEWS -->
     <script src="js/view/dishView.js"></script>
     <script src="js/view/introView.js"></script>
     <script src="js/view/plannerView.js"></script>
     <script src="js/view/sidebarView.js"></script>
     <script src="js/view/menuView.js"></script>
     <script src="js/view/confirmView.js"></script>
-    <!-- TODO: Here you should include JS code for your other views -->
+    <!-- CONTROLLERS -->
+    <script src="js/controllers/plannerCtrl.js"></script>
+    <!-- APP -->
+    <script src="js/app.js"></script>
+    
 </body>
 
 </html>

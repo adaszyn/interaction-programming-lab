@@ -15,6 +15,10 @@ $(function() {
     dish: new DishView($("#dishView"), model),
     confirm: new ConfirmView($("#confirmView"), model)
   };
+
+  var controllers = {
+      planner: new PlannerCtrl(model, views.planner)
+  }
   window.updateViews = function() {
     for (let viewKey in views) {
         if (views.hasOwnProperty(viewKey)) {
@@ -43,6 +47,8 @@ $(function() {
   $("#menu-toggle-button").on("click", function() {
     router.toggleElement($("#sidebarView"));
   });
+
+  
   router.update();
   window.updateViews()
   window.onhashchange = function() {
