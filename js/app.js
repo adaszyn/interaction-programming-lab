@@ -17,7 +17,8 @@ $(function() {
   };
 
   var controllers = {
-      planner: new PlannerCtrl(model, views.planner)
+      planner: new PlannerCtrl(model, views.planner),
+      sidebar: new SidebarCtrl(model, views.sidebar),
   }
   window.updateViews = function() {
     for (let viewKey in views) {

@@ -1,5 +1,6 @@
-var SidebarCtrl = function(view, model){
-  view.find('#num-of-guests___select').on('change', function(){
+var SidebarCtrl = function(model, view){
+  view.onNumberOfGuestsChange(function(event){
+    var value = event.target.value;
     model.setNumberOfGuests(parseInt(this.value));
   });
 }
