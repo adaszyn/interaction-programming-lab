@@ -25,7 +25,9 @@ function renderIngredients(menuItem) {
       ${ingredientCells}
         <tr>
             <td>
-                <button type="button" class="ingredients-table__button btn btn-secondary btn-md">Add to cart</button>
+              <a href="#planner">
+                <button type="button" class="ingredients-table__button btn btn-secondary btn-md" data-dish-id="${menuItem.id}">Add to cart</button>
+              </a>
             </td>
             <td></td>
             <td>SEK ${totalPrice}</td>

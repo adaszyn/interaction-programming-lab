@@ -98,7 +98,7 @@ var DinnerModel = function() {
         dish.ingredients.forEach(function(ingredient){
           if(ingredient.name.indexOf(search_term)!=-1){
             found = true;
-            break;
+            return false; //break
           }
         });
         if(category == 'all')
