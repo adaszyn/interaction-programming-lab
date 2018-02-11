@@ -1,12 +1,14 @@
 $(function() {
   var model = new DinnerModel();
+  console.log(model);
 
+/*
   model.addDishToMenu(1)
   model.addDishToMenu(2)
   model.addDishToMenu(3)
   model.addDishToMenu(100)
   model.addDishToMenu(101)
-
+*/
   var views = {
     intro: new IntroView($("#introView"), model),
     planner: new PlannerView($("#plannerView"), model),
