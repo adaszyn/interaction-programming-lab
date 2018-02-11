@@ -4,19 +4,21 @@
 //     'unit':'g',
 //     'price':4
 //     },{
-function renderIngredientsRow(ingredient) {
+function renderIngredientsRow(ingredient, numberOfGuests) {
+  var quantity = ingredient.quantity * numberOfGuests;
+  var price = ingredient.price * numberOfGuests;
   return `<tr>
-        <td>${ingredient.quantity} ${ingredient.unit}</td>
+        <td>${quantity} ${ingredient.unit}</td>
         <td>${ingredient.name}</td>
-        <td>${ingredient.price}</td>
+        <td>${price}</td>
     </tr>`;
 }
-function renderIngredients(menuItem) {
+function renderIngredients(menuItem, numberOfGuests) {
   var totalPrice = menuItem.ingredients.reduce(
-    (sum, ingredient) => sum + ingredient.price, 0
+    (sum, ingredient) => sum + (ingredient.price * numberOfGuests), 0
   );
   var ingredientCells = menuItem.ingredients.reduce(
-    (html, ingredient) => html + renderIngredientsRow(ingredient) + "\n",
+    (html, ingredient) => html + renderIngredientsRow(ingredient, numberOfGuests) + "\n",
     ""
   );
   return `
@@ -36,7 +38,7 @@ function renderIngredients(menuItem) {
     </tbody>
 </table>`;
 }
-function renderDishView(menuItem) {
+function renderDishView(menuItem, numberOfGuests) {
   return `
     <div class="col-md-6 col-xs-12">
         <h1>${menuItem.name}</h1>
@@ -52,11 +54,12 @@ function renderDishView(menuItem) {
     </div>
     <div class="ingredients-table col-md-6 col-xs-12">
         <h3 class="ingredients-table__header">
-            Ingredients for 3 people
+            Ingredients for ${numberOfGuests} people
         </h3>
-       ${renderIngredients(menuItem)}
-</div>`;
+       ${renderIngredients(menuItem, numberOfGuests)}
+   </div>`;
 }
+
 var DishView = function(container, model) {
     View.call(this, container, model)
     this.container = container;
@@ -68,7 +71,7 @@ DishView.prototype.update = function() {
     var routeParams = parseRoute(window.location.hash);
     var dish = this.model.getDish(routeParams.params.id);
     if (dish) {
-      this.container.html(renderDishView(dish));
+      this.container.html(renderDishView(dish, this.model.getNumberOfGuests()));
     }
     if(window.innerWidth < 480){
       $('.sidebar').hide()
