@@ -22,7 +22,7 @@ ConfirmView.prototype.update = function() {
   var menu = model.getFullMenu();
   var menuGridContainer = this.container.find('#menu-container___div');
   menu.forEach(function(dish){
-    var price = model.getDishPrice(dish.id)
+    var price = model.getDishPricePerPerson(dish.id)
     var formattedPrice = NumberUtil.formatPrice(price)
     menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
   });

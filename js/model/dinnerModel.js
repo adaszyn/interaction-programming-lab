@@ -10,27 +10,27 @@ function getObjectKeys (object) {
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-    this.numberOfGuests = 2;
-    this.menu = {};
+    var numberOfGuests = 1;
+    var menu = {};
     var observers = {};
     var currentObserverId = 0;
 
 	this.setNumberOfGuests = function(number) {
-        this.numberOfGuests = number;
+        numberOfGuests = number;
         notifyObservers()
         return this;
     }
 
 	this.getNumberOfGuests = function() {
-		return this.numberOfGuests;
+		return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
         var result = [];
-        for (id in this.menu) {
-            if (this.menu.hasOwnProperty(id)) {
-                var dish = this.menu[id];
+        for (id in menu) {
+            if (menu.hasOwnProperty(id)) {
+                var dish = menu[id];
                 if (dish.type === type) {
                     result.push(dish);
                 }
@@ -41,20 +41,31 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-        var menuIds = getObjectKeys(this.menu)
-        return menuIds.map(this.getDish)
+    var menuIds = getObjectKeys(menu)
+    return menuIds.map(this.getDish)
 	}
+
+  this.getFullMenuWithPrice = function(){
+    var self = this;
+    var menu = this.getFullMenu();
+    var menuWithPrice = new Array();
+    $.each(menu, function(id){
+      var price = self.getDishPricePerPerson(menu[id].id) * self.getNumberOfGuests();
+      menuWithPrice.push({'dish': menu[id], 'price': NumberUtil.formatPrice(price)})
+    });
+    return menuWithPrice;
+  }
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-        var result = []
-        for (id in this.menu) {
-            if (this.menu.hasOwnProperty(id)) {
-                var dish = this.menu[id];
-                result = result.concat(dish.ingredients)
-            }
+    var result = []
+    for (id in menu) {
+        if (menu.hasOwnProperty(id)) {
+            var dish = menu[id];
+            result = result.concat(dish.ingredients)
         }
-        return result;
+    }
+    return result;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -62,40 +73,56 @@ var DinnerModel = function() {
         var ingredients = this.getAllIngredients()
         return ingredients.reduce((total, ingredient) => {
             return total + ingredient.price * ingredient.quantity;
-        }, 0) * this.numberOfGuests;
+        }, 0) * numberOfGuests;
 
     }
-    this.getDishPrice = function (id) {
-        var dish = this.getDish(id);
-        return dish.ingredients.reduce(function (sum, ingredient){
-            return sum + ingredient.quantity * ingredient.price;
-        }, 0)
-    }
+
+  this.getDishPricePerPerson = function (id) {
+      var dish = this.getDish(id);
+      return dish.ingredients.reduce(function (sum, ingredient){
+          return sum + ingredient.quantity * ingredient.price;
+      }, 0)
+  }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-        var dish = dishes.find(dish => dish.id === id);
-        if (!dish) {
-            throw "Dish does not exist."
-        }
-        this.menu[id] = dish;
-        notifyObservers()
+    var dish = dishes.find(dish => dish.id === id);
+    if (!dish) {
+        throw "Dish does not exist."
+    }
+    menu[id] = dish;
+    notifyObservers()
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		delete this.menu[id];
+		delete menu[id];
 	}
 
   var search_results;
   this.setSearchResults = function(category, search_term){
-    search_results = dishes.filter((dish) => {
-        if (category === 'all') {
-            return dish.name.includes(search_term) 
+    search_term = search_term.toLowerCase();
+
+    var doesDishContainSearchTerm = function(dish, search_term){
+      if(dish.name.toLowerCase().indexOf(search_term)!=-1) {
+         return true;
+      } else {
+        for(let i=0; i<dish.ingredients.length; i++){
+          if(dish.ingredients[i].name.toLowerCase().indexOf(search_term)!=-1){
+            return true;
+          }
         }
-        return dish.name.includes(search_term) && dish.type === category
-    })
+      }
+    }
+
+    search_results = dishes.filter(function(dish){
+      var f = doesDishContainSearchTerm(dish, search_term);
+      if(category === 'all')
+        return f;
+      else
+        return f && dish.type === category;
+    });
     notifyObservers();
   }
 
@@ -128,26 +155,26 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
+    for(let i =0; i< dishes.length; i++) {
+      if(parseInt(dishes[i].id) == id)
+        return dishes[i];
     }
-    this.addObserver = function(callback) {
-        observers[currentObserverId] = callback;
-        return currentObserverId++;
-    }
+  }
 
-    var notifyObservers = function() {
-        getObjectKeys(observers).forEach(function (observerId) {
-            observers[observerId]()
-        })
-    }
+  this.addObserver = function(callback) {
+      observers[currentObserverId] = callback;
+      return currentObserverId++;
+  }
 
-    this.removeObserver = function (observerId) {
-        delete observers[observerId];
-    }
+  var notifyObservers = function() {
+      getObjectKeys(observers).forEach(function (observerId) {
+          observers[observerId]()
+      })
+  }
+
+  this.removeObserver = function (observerId) {
+      delete observers[observerId];
+  }
 
 
 	// the dishes variable contains an array of all the

@@ -2,7 +2,7 @@
 function renderTableItemTemplate(dish){
   return `
     <tr>
-      <td>${dish.name}</td>
+      <td>${dish.dish.name}</td>
       <td>${dish.price}</td>
     </tr>
   `
@@ -25,15 +25,18 @@ SidebarView.prototype.update = function() {
   var totalPrice = NumberUtil.formatPrice(this.model.getTotalMenuPrice())
   totalPriceElement.text(totalPrice + " SEK");
 
-
   var selectMenu = this.container.find('#num-of-guests___select');
   selectMenu
     .find("option[value='"+ this.model.numberOfGuests + "']")
     .prop('selected', true);
 
-  var menuTable = this.container.find('#selected-dishes___table');
-  var menu = this.model.getFullMenu();
+  var menuTable = this.container.find('.selected-dishes-table');
+  menuTable.children('tr').remove();
+  var menu = this.model.getFullMenuWithPrice();
   $.each(menu, function(dish){
-    menuTable.append(renderTableItemTemplate(dish));
+    console.log();
+    menuTable.append(renderTableItemTemplate(menu[dish]));
   });
+
+  console.log(menu);
 }

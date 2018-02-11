@@ -19,16 +19,15 @@ var PlannerView = function (container, model) {
     this.selectedDishType = container.find('#search-view___select').val()
     this.searchTerm = container.find('#search-view___input').val()
 
-
     container.find('#search-view___input').on('input', function (event) {
         self.searchTerm = event.target.value;
     })
-    
+
     container.find('#search-view___select').on('change', function (event) {
         self.selectedDishType = event.target.value;
     })
 
-    this.onSearchSubmit = (callback) => 
+    this.onSearchSubmit = (callback) =>
         container.find('#search___btn-dinner').on('click', callback);
 }
 PlannerView.prototype = new View()
