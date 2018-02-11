@@ -16,7 +16,7 @@ var SidebarView = function (container, model) {
 
     // METHODS
     this.onNumberOfGuestsChange = (callback) =>
-    container.find('#num-of-guests___select').on('change', callback)
+      container.find('#num-of-guests___select').on('change', callback)
 }
 SidebarView.prototype = new View()
 
@@ -37,6 +37,4 @@ SidebarView.prototype.update = function() {
     console.log();
     menuTable.append(renderTableItemTemplate(menu[dish]));
   });
-
-  console.log(menu);
 }

@@ -64,7 +64,18 @@ var DishView = function(container, model) {
     View.call(this, container, model)
     this.container = container;
     this.model = model;
-};
+    this.dishId = '';
+
+    var self = this;
+
+    container.on('click', '.ingredients-table__button', function(e){
+      self.dishId = e.target.getAttribute('data-dish-id');
+    });
+
+    this.onAddDishToMenu = (callback) =>
+        container.on('click', '.ingredients-table__button', callback);
+}
+
 DishView.prototype = new View()
 
 DishView.prototype.update = function() {
