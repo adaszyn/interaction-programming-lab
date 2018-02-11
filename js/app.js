@@ -15,7 +15,6 @@ $(function() {
     dish: new DishView($("#dishView"), model),
     confirm: new ConfirmView($("#confirmView"), model)
   };
-  console.log(views.dish);
 
   var controllers = {
       planner: new PlannerCtrl(model, views.planner),

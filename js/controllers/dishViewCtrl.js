@@ -1,5 +1,5 @@
-var DishViewCtrl = function(view, model){
-  this.view.onAddDishToMenu(function () {
+var DishViewCtrl = function(model, view){
+  view.onAddDishToMenu(function () {
     model.addDishToMenu(view.dishId);
   });
 }
