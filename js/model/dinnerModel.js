@@ -84,13 +84,19 @@ var DinnerModel = function() {
       }, 0)
   }
 
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
+  this.doesDishExistInMenu = function(id){
+    if(typeof menu[id] !== 'undefined')
+      return true;
+    return false;
+  }
+
+  //Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
     if(typeof id === 'string'){
       id = parseInt(id);
     }
-    
+
     var dish = dishes.find(dish => dish.id === id);
     if (!dish) {
         throw "Dish does not exist."

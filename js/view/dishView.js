@@ -13,7 +13,7 @@ function renderIngredientsRow(ingredient, numberOfGuests) {
         <td>${price}</td>
     </tr>`;
 }
-function renderIngredients(menuItem, numberOfGuests) {
+function renderIngredients(menuItem, numberOfGuests, doesDishExistInMenu) {
   var totalPrice = menuItem.ingredients.reduce(
     (sum, ingredient) => sum + (ingredient.price * numberOfGuests), 0
   );
@@ -21,6 +21,10 @@ function renderIngredients(menuItem, numberOfGuests) {
     (html, ingredient) => html + renderIngredientsRow(ingredient, numberOfGuests) + "\n",
     ""
   );
+
+  var disabled = doesDishExistInMenu?'disabled':'';
+  var button_text = doesDishExistInMenu? 'Already Added':'Add To Cart';
+
   return `
     <table class="table">
     <tbody>
@@ -28,7 +32,7 @@ function renderIngredients(menuItem, numberOfGuests) {
         <tr>
             <td>
               <a href="#planner">
-                <button type="button" class="ingredients-table__button btn btn-secondary btn-md" data-dish-id="${menuItem.id}">Add to cart</button>
+                <button type="button" class="ingredients-table__button btn btn-secondary btn-md" ${disabled} data-dish-id="${menuItem.id}">${button_text}</button>
               </a>
             </td>
             <td></td>
@@ -38,7 +42,7 @@ function renderIngredients(menuItem, numberOfGuests) {
     </tbody>
 </table>`;
 }
-function renderDishView(menuItem, numberOfGuests) {
+function renderDishView(menuItem, numberOfGuests, doesDishExistInMenu) {
   return `
     <div class="col-md-6 col-xs-12">
         <h1>${menuItem.name}</h1>
@@ -56,7 +60,7 @@ function renderDishView(menuItem, numberOfGuests) {
         <h3 class="ingredients-table__header">
             Ingredients for ${numberOfGuests} people
         </h3>
-       ${renderIngredients(menuItem, numberOfGuests)}
+       ${renderIngredients(menuItem, numberOfGuests, doesDishExistInMenu)}
    </div>`;
 }
 
@@ -82,7 +86,10 @@ DishView.prototype.update = function() {
     var routeParams = parseRoute(window.location.hash);
     var dish = this.model.getDish(routeParams.params.id);
     if (dish) {
-      this.container.html(renderDishView(dish, this.model.getNumberOfGuests()));
+      this.container.html(renderDishView(dish,
+        this.model.getNumberOfGuests(),
+        this.model.doesDishExistInMenu(dish.id)
+      ));
     }
     if(window.innerWidth < 480){
       $('.sidebar').hide()
