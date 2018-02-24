@@ -1,3 +1,5 @@
+const API_BASE = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/";
+
 function getObjectKeys (object) {
     var keys = []
     for (var key in object) {
@@ -110,29 +112,33 @@ var DinnerModel = function() {
 		delete menu[id];
 	}
 
-  var search_results;
+  var search_results = Promise.resolve({results: []})
   this.setSearchResults = function(category, search_term){
-    search_term = search_term.toLowerCase();
+    // search_term = search_term.toLowerCase();
 
-    var doesDishContainSearchTerm = function(dish, search_term){
-      if(dish.name.toLowerCase().indexOf(search_term)!=-1) {
-         return true;
-      } else {
-        for(let i=0; i<dish.ingredients.length; i++){
-          if(dish.ingredients[i].name.toLowerCase().indexOf(search_term)!=-1){
-            return true;
-          }
-        }
-      }
-    }
+    // var doesDishContainSearchTerm = function(dish, search_term){
+    //   if(dish.name.toLowerCase().indexOf(search_term)!=-1) {
+    //      return true;
+    //   } else {
+    //     for(let i=0; i<dish.ingredients.length; i++){
+    //       if(dish.ingredients[i].name.toLowerCase().indexOf(search_term)!=-1){
+    //         return true;
+    //       }
+    //     }
+    //   }
+    // }
 
-    search_results = dishes.filter(function(dish){
-      var f = doesDishContainSearchTerm(dish, search_term);
-      if(category === 'all')
-        return f;
-      else
-        return f && dish.type === category;
-    });
+    // search_results = dishes.filter(function(dish){
+    //   var f = doesDishContainSearchTerm(dish, search_term);
+    //   if(category === 'all')
+    //     return f;
+    //   else
+    //     return f && dish.type === category;
+    // });
+    search_results = api(`${API_BASE}recipes/searchComplex`, {
+        query: search_term,
+        type: category
+    })
     notifyObservers();
   }
 

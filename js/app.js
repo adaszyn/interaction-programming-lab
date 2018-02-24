@@ -1,7 +1,5 @@
 $(function() {
   var model = new DinnerModel();
-  console.log(model);
-
 /*
   model.addDishToMenu(1)
   model.addDishToMenu(2)

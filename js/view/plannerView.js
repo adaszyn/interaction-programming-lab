@@ -2,8 +2,8 @@ function renderMenuItemTemplate(item) {
     return `
     <a href="#dish?id=${item.id}" class="menu-item-container">
         <div class="menu-item">
-          <div class="menu-item__image" style="background-image: url('./images/${item.image}')">
-              <h3 class="menu-item__label">${item.name}</h3>
+          <div class="menu-item__image" style="background-image: url('${item.image}')">
+              <h3 class="menu-item__label">${item.title}</h3>
           </div>
         </div>
     </a>
@@ -36,12 +36,26 @@ PlannerView.prototype.update = function() {
     var menu = this.model.getSearchResults();
     var menuContainer = this.container.find('#menu-container');
     menuContainer.html('');
+
     this.container.find('#guests-number-list')
         .val(this.model.getNumberOfGuests())
 
-    menu.forEach(function(menuItem) {
-        menuContainer.append(renderMenuItemTemplate(menuItem))
-    })
+    menuContainer.append(getSpinnerMarkup())
+    menu
+        .then(function (menu) {
+            menuContainer.html('');
+            if (menu.results.length < 1) {
+                menuContainer.append('Nothing found!');
+            }
+            menu.results.forEach(function(menuItem) {
+                menuContainer.append(renderMenuItemTemplate(menuItem))
+            })
+        })
+        .catch(function (error) {
+            menuContainer.html('');
+            menuContainer.append('error')
+        })
+
     if(window.innerWidth < 480){
       $('.sidebar').hide()
     }
