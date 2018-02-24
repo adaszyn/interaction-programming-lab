@@ -2,8 +2,8 @@
 function renderTableItemTemplate(dish){
   return `
     <tr>
-      <td>${dish.dish.name}</td>
-      <td>${dish.price}</td>
+      <td>${dish.title}</td>
+      <td>${dish.pricePerServing}</td>
     </tr>
   `
 }
@@ -22,8 +22,12 @@ SidebarView.prototype = new View()
 
 SidebarView.prototype.update = function() {
   var totalPriceElement = this.container.find('#sidebar-total-price');
-  var totalPrice = NumberUtil.formatPrice(this.model.getTotalMenuPrice())
-  totalPriceElement.text(totalPrice + " SEK");
+  this.model.getTotalMenuPrice()
+    .then((price) => {
+        var totalPrice = NumberUtil.formatPrice(price)
+        totalPriceElement.text(totalPrice + " SEK");
+    })
+
 
   var selectMenu = this.container.find('#num-of-guests___select');
   selectMenu
@@ -31,10 +35,12 @@ SidebarView.prototype.update = function() {
     .prop('selected', true);
 
   var menuTable = this.container.find('.selected-dishes-table');
-  menuTable.children('tr').remove();
   var menu = this.model.getFullMenuWithPrice();
-  $.each(menu, function(dish){
-    console.log();
-    menuTable.append(renderTableItemTemplate(menu[dish]));
-  });
+  menu.then((menu) => {
+    menuTable.children('tr').remove();
+    $.each(menu, function(dish){
+        menuTable.append(renderTableItemTemplate(menu[dish]));
+      });
+  })
+
 }

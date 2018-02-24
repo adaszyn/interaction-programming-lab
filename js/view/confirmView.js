@@ -22,12 +22,16 @@ ConfirmView.prototype.update = function() {
   var menu = model.getFullMenu();
   var menuGridContainer = this.container.find('#menu-container___div');
   menuGridContainer.html('');
-  menu.forEach(function(dish){
-    var price = model.getDishPricePerPerson(dish.id)
-    var formattedPrice = NumberUtil.formatPrice(price)
-    menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
-  });
-  var price = this.model.getTotalMenuPrice()
-  var formattedPrice = NumberUtil.formatPrice(price) + " SEK"
-  this.container.find('#total-price___span').text(formattedPrice);
+  menu.then(menu => {
+    menu.forEach(function(dish){
+        var price = dish.pricePerServing;
+        var formattedPrice = NumberUtil.formatPrice(price)
+        menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
+      });
+  })
+
+  this.model.getTotalMenuPrice().then((price) => {
+    var formattedPrice = NumberUtil.formatPrice(price) + " SEK"
+    this.container.find('#total-price___span').text(formattedPrice);
+  })
 }
