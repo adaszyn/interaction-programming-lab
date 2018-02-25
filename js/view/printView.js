@@ -1,4 +1,4 @@
-function renderMenuItemTemplate(item) {
+function renderPrintItemTemplate(item) {
   return `
   <div id="print-summary">
     <div class="menu-item col-md-1 col-xs-12">
@@ -25,17 +25,15 @@ var PrintView = function (container, model) {
     this.model = model;
 }
 
-PrintView.prototype = new View()
+PrintView.prototype = new View();
 
 PrintView.prototype.update = function() {
   var container = this.container;
   var model = this.model;
   var menu = model.getFullMenu();
-  console.log(menu);
   menu.then((menu) => {
     menu.forEach((dish) => {
-      var html = renderMenuItemTemplate(dish);
-      console.log(html);
+      var html = renderPrintItemTemplate(dish);
       container.append(html)
     });
   });

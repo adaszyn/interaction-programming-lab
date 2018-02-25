@@ -14,7 +14,7 @@ $(function() {
     sidebar: new SidebarView($("#sidebarView"), model),
     dish: new DishView($("#dishView"), model),
     confirm: new ConfirmView($("#confirmView"), model),
-    // print: new PrintView($("#printView"), model)
+    print: new PrintView($("#printView"), model)
   };
 
   var controllers = {
@@ -47,13 +47,10 @@ $(function() {
     ],
     "#confirm": [
       views.confirm,
-    ]
-    /*
-    ,
+    ],
     "#print": [
       views.print
     ]
-    */
   });
   $("#menu-toggle-button").on("click", function() {
     router.toggleElement($("#sidebarView"));
