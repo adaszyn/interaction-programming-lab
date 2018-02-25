@@ -45,7 +45,7 @@ function renderDishView(menuItem, numberOfGuests, doesDishExistInMenu) {
     <div class="col-md-6 col-xs-12">
         <h1>${menuItem.title}</h1>
         <img class="dish-preview-img" src="${menuItem.image}" />
-    
+
         <a href="#planner">
             <button type="button" class="dnp-btn btn btn-secondary btn-md">Back to search</button>
         </a>
@@ -82,6 +82,8 @@ DishView.prototype = new View()
 
 DishView.prototype.update = function() {
     var routeParams = parseRoute(window.location.hash);
+    if(typeof routeParams === 'undefined')
+      return;
     var dish = this.model.getDish(routeParams.params.id);
     this.container.html(getSpinnerMarkup())
     dish.then((dish) => {
@@ -92,7 +94,7 @@ DishView.prototype.update = function() {
             ));
           }
     })
- 
+
     if(window.innerWidth < 480){
       $('.sidebar').hide()
     }

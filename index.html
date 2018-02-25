@@ -123,7 +123,7 @@
         <div class="confirm-header">
             <div class="confirmation-header">
                 <h3 class="confirmation-header-text">My Dinner:
-                    <span id="num-of-guests">3 people</span>
+                    <span id="num-of-guests"></span>
                 </h3>
                 <a href="#planner" class="confirmation-header-back-button">
                     <button class="dnp-btn btn btn-secondary btn-md">Go back and edit dinner</button>
@@ -142,8 +142,27 @@
             </div>
         </div>
         <div class="confirmation-footer" id="print-btn___container">
-            <button type="button" class="dnp-btn btn btn-secondary col-md-2 col-xs-4">Print recipe</button>
+          <a href="#print">
+            <button type="button" class="dnp-btn btn btn-secondary">Print recipe</button>
+          </a>
         </div>
+    </div>
+
+    <!--
+
+    <div id="printView" class="print-container col-md-12">
+      <div class="print-header">
+          <div class="print-header">
+              <h3 class="print-header-text">My Dinner:
+                  <span id="num-of-guests"></span>
+              </h3>
+              <a href="#planner" class="print-header-back-button">
+                  <button class="dnp-btn btn btn-secondary btn-md">Go back and edit dinner</button>
+              </a>
+          </div>
+      </div>
+    -->
+      <!-- append rest of the items here -->
     </div>
 
     <!-- jQuery -->
@@ -166,6 +185,7 @@
     <script src="js/view/sidebarView.js"></script>
     <script src="js/view/menuView.js"></script>
     <script src="js/view/confirmView.js"></script>
+    <!-- <script src="js/view/printView.js"></script> -->
     <!-- CONTROLLERS -->
     <script src="js/controllers/plannerCtrl.js"></script>
     <script src="js/controllers/sidebarCtrl.js"></script>

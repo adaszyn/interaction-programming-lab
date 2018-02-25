@@ -2,7 +2,7 @@ function renderDishItemTemplate(dish, price){
   return `
     <div class="cart-summary-item-container">
     <div class="cart-summary-item-container__border" style="background-image: url(${dish.image})" >
-        <h3 class="cart-summary-item-container__label">${dish.name}</h3>
+        <h3 class="cart-summary-item-container__label">${dish.title}</h3>
     </div>
     <b class="cart-summary-item-price">${price} SEK</b>
     </div>
@@ -24,7 +24,7 @@ ConfirmView.prototype.update = function() {
   var menuGridContainer = this.container.find('#menu-container___div');
   var priceContainer = this.container.find('#total-price___span');
   menuGridContainer.html('');
-  numberOfGuestsContainer.html(model.getNumberOfGuests());
+  numberOfGuestsContainer.html(model.getNumberOfGuests() + " people");
   menu.then(menu => {
     menu.forEach(function(dish){
       console.log(dish);
