@@ -1,7 +1,7 @@
 
 function renderTableItemTemplate(dish){
   return `
-    <tr>
+    <tr class="dish-row">
       <td>${dish.title}</td>
       <td>${dish.totalPriceForAllGuests}</td>
     </tr>
@@ -34,7 +34,7 @@ SidebarView.prototype.update = function() {
     .find("option[value='"+ this.model.numberOfGuests + "']")
     .prop('selected', true);
 
-  var menuTable = this.container.find('.selected-dishes-table');
+  var menuTable = this.container.find('.selected-dishes-table > tbody');
   var menu = this.model.getFullMenuWithPrice();
   var numberOfGuests = this.model.getNumberOfGuests();
 
