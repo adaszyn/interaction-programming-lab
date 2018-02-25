@@ -3,7 +3,7 @@ function renderTableItemTemplate(dish){
   return `
     <tr>
       <td>${dish.title}</td>
-      <td>${dish.pricePerServing}</td>
+      <td>${dish.totalPriceForAllGuests}</td>
     </tr>
   `
 }
@@ -36,11 +36,15 @@ SidebarView.prototype.update = function() {
 
   var menuTable = this.container.find('.selected-dishes-table');
   var menu = this.model.getFullMenuWithPrice();
+  var numberOfGuests = this.model.getNumberOfGuests();
+
   menu.then((menu) => {
     menuTable.children('tr').remove();
-    $.each(menu, function(dish){
-        menuTable.append(renderTableItemTemplate(menu[dish]));
-      });
+    $.each(menu, function(id){
+      var dish = menu[id];
+      dish.totalPriceForAllGuests = dish.pricePerServing * numberOfGuests ;
+      menuTable.append(renderTableItemTemplate(dish));
+    });
   })
 
 }
