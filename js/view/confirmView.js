@@ -1,7 +1,7 @@
 function renderDishItemTemplate(dish, price){
   return `
     <div class="cart-summary-item-container">
-    <div class="cart-summary-item-container__border" style="background-image: url(./images/${dish.image})" >
+    <div class="cart-summary-item-container__border" style="background-image: url(${dish.image})" >
         <h3 class="cart-summary-item-container__label">${dish.name}</h3>
     </div>
     <b class="cart-summary-item-price">${price} SEK</b>
@@ -20,10 +20,14 @@ ConfirmView.prototype = new View()
 ConfirmView.prototype.update = function() {
   var model = this.model;
   var menu = model.getFullMenu();
+  var numberOfGuestsContainer = this.container.find('span#num-of-guests');
   var menuGridContainer = this.container.find('#menu-container___div');
+  var priceContainer = this.container.find('#total-price___span');
   menuGridContainer.html('');
+  numberOfGuestsContainer.html(model.getNumberOfGuests());
   menu.then(menu => {
     menu.forEach(function(dish){
+      console.log(dish);
         var price = dish.pricePerServing;
         var formattedPrice = NumberUtil.formatPrice(price)
         menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
@@ -32,6 +36,6 @@ ConfirmView.prototype.update = function() {
 
   this.model.getTotalMenuPrice().then((price) => {
     var formattedPrice = NumberUtil.formatPrice(price) + " SEK"
-    this.container.find('#total-price___span').text(formattedPrice);
+    priceContainer.text(formattedPrice);
   })
 }
