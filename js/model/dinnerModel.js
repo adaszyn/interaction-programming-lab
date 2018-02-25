@@ -85,7 +85,7 @@ var DinnerModel = function() {
   this.addDishToMenu = function(id) {
     var dish = api(`${API_BASE}recipes/${id}/information`);
     menu.push(dish);
-    notifyObservers();
+    // notifyObservers();
   };
 
   //Removes dish from menu

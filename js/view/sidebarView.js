@@ -21,13 +21,14 @@ var SidebarView = function (container, model) {
 SidebarView.prototype = new View()
 
 SidebarView.prototype.update = function() {
+  var self = this;
+
   var totalPriceElement = this.container.find('#sidebar-total-price');
   this.model.getTotalMenuPrice()
     .then((price) => {
         var totalPrice = NumberUtil.formatPrice(price)
         totalPriceElement.text(totalPrice + " SEK");
     })
-
 
   var selectMenu = this.container.find('#num-of-guests___select');
   selectMenu
@@ -38,7 +39,10 @@ SidebarView.prototype.update = function() {
   var menu = this.model.getFullMenuWithPrice();
   var numberOfGuests = this.model.getNumberOfGuests();
 
+  this.container.find('.selected-dishes-table').append(getSpinnerMarkup());
+  console.log('sidebar');
   menu.then((menu) => {
+    self.container.find('.spinner').remove();
     menuTable.children('tr').remove();
     $.each(menu, function(id){
       var dish = menu[id];
@@ -46,5 +50,8 @@ SidebarView.prototype.update = function() {
       menuTable.append(renderTableItemTemplate(dish));
     });
   })
-
+  .catch(function(error){
+    console.log(error);
+    self.container.find('.spinner').remove();
+  })
 }
