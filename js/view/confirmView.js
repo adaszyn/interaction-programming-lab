@@ -27,12 +27,13 @@ ConfirmView.prototype.update = function() {
   numberOfGuestsContainer.html(model.getNumberOfGuests() + " people");
   menu.then(menu => {
     menu.forEach(function(dish){
-      console.log(dish);
         var price = dish.pricePerServing;
         var formattedPrice = NumberUtil.formatPrice(price)
         menuGridContainer.append(renderDishItemTemplate(dish, formattedPrice));
       });
-  })
+  }).catch(function(error){
+    toastr.error('Could not retrieve confirm info :\'( \n Please try again');
+  });
 
   this.model.getTotalMenuPrice().then((price) => {
     var formattedPrice = NumberUtil.formatPrice(price) + " SEK"

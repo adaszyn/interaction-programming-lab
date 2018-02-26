@@ -7,3 +7,12 @@ function getSpinnerMarkup() {
     </div>
 `;
 }
+
+function getErrorMarkup(){
+  return `
+    <div class="alert alert-danger" role="alert">
+      Ouch! Some error occured when retrieving data.
+
+      Please try again.
+    </div>`;
+}

@@ -82,7 +82,7 @@ DishView.prototype = new View()
 
 DishView.prototype.update = function() {
     var routeParams = parseRoute(window.location.hash);
-    if(typeof routeParams === 'undefined')
+    if(typeof routeParams.params.id === 'undefined')
       return;
     var dish = this.model.getDish(routeParams.params.id);
     this.container.html(getSpinnerMarkup())
@@ -93,7 +93,9 @@ DishView.prototype.update = function() {
               this.model.doesDishExistInMenu(dish.id)
             ));
           }
-    })
+    }).catch(function(error){
+      toastr.error('Could not retrieve dish info :\'( \n Please try again');
+    });
 
     if(window.innerWidth < 480){
       $('.sidebar').hide()

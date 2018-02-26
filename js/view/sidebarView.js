@@ -40,7 +40,6 @@ SidebarView.prototype.update = function() {
   var numberOfGuests = this.model.getNumberOfGuests();
 
   this.container.find('.selected-dishes-table').append(getSpinnerMarkup());
-  console.log('sidebar');
   menu.then((menu) => {
     self.container.find('.spinner').remove();
     menuTable.children('tr').remove();
@@ -51,7 +50,7 @@ SidebarView.prototype.update = function() {
     });
   })
   .catch(function(error){
-    console.log(error);
     self.container.find('.spinner').remove();
+    toastr.error('Could not retrieve sidebar info :\'( \n Please try again');
   })
 }

@@ -14,7 +14,7 @@ function renderPrintItemTemplate(item) {
        </div>
     </div>
 
-    <div class="print-summary__preparation col-md-5 col-xs-12">
+    <div class="print-summary__preparation col-md-4 col-xs-12">
       <h3>Preparation</h3>
       ${item.instructions}
     </div>
@@ -44,5 +44,7 @@ PrintView.prototype.update = function() {
       var html = renderPrintItemTemplate(dish);
       summaryContainer.append(html)
     });
+  }).catch(function(error){
+    toastr.error('Could not retrieve print info :\'( \n Please try again');
   });
 }

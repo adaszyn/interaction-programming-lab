@@ -53,7 +53,7 @@ PlannerView.prototype.update = function() {
         })
         .catch(function (error) {
             menuContainer.html('');
-            menuContainer.append('error')
+            toastr.error('Something bad happened :\'( \n Please try again');
         })
 
     if(window.innerWidth < 480){
